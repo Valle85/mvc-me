@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class LuckyControllerJson extends AbstractController
 {
-    #[Route("/api/lucky/number")]
+    #[Route("/api/lucky/number", name: "api_lucky")]
     public function jsonNumber(): Response
     {
         $number = random_int(0, 100);
@@ -50,14 +50,6 @@ class LuckyControllerJson extends AbstractController
     #[Route("/api/", name: "api_index")]
     public function index(): Response
     {
-        $html = <<<HTML
-            <h1>API-översikt</h1>
-            <ul>
-                <li><a href="/api/lucky/number">/api/lucky/number</a></li>
-                <li><a href="/api/quote">/api/quote</a></li>
-            </ul>
-        HTML;
-
-        return new Response($html);
+        return $this->render('api/index.html.twig');
     }
 }
