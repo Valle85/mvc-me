@@ -5,15 +5,36 @@
 {% block body %}
     <h1>Redovisning</h1>
 
-    <section id="kmom01">
-        <h2>kmom01</h2>
-        <p>Här kommer din redovisningstext för kmom01.</p>
-    </section>
+<section id="kmom01">
+    <h2>kmom01</h2>
+    <p>Jag har tidigare testat objektorienerad programmering främst i JavaScript och Python, men inte i PHP. 
+    Jag har känner igen vissa strutkurer som klasser, objekt, arv, konstruktorn  men det är lite annorlunda än vad jag är van med. 
+    Jag har fått en tydligare inblick i hur dessa används i PHP. 
+    I tidigare kurser har jag testat en del PHP, så det är roligt att nu få bygga mer strukturerat med klasser och ramverk. 
+    Det känns som att denna kurs är mera omfattande.</p>
 
-    <section id="kmom02">
-        <h2>kmom02</h2>
-        <p>Text för kmom02 läggs här.</p>
-    </section>
+    <p>PHPs modell för klasser och objekt fungerar på ett liknande sätt som i andra språk. 
+    För att komma igång behöver man veta hur man skapar en klass med class, hur man gör ett objekt med new, och hur man skapar egenskaper och metoder i klassen. 
+    Det är också bra att förstå vad public, private och protected betyder. 
+    Man använder ofta en metod som heter __construct() för att köra kod direkt när objektet skapas. 
+    Det är också viktigt att veta hur man organiserar sin kod i olika filer och mappar med hjälp av namespaces.</p>
 
-    {# Fyll på med fler kmom-avsnitt allt eftersom #}
+    <p>När det gäller strukturen i me-sidan tycker jag att den var väl genomtänkt. 
+    Symfony är ett stort ramverk, men det ger tydliga riktlinjer för hur man bör organisera controllers, templates och routes. 
+    Att arbeta med Twig var smidigt, och det gjorde det lätt att separera logik och presentation. 
+    Jag gillar att varje route har en egen metod i controllern och att man enkelt kan återanvända layout.
+    Jag upplevde dock att det ibland var lite mycket att hålla reda på i början, men med lite övning blir det lättare snart.</p>
+
+    <p>Artikeln PHP The Right Way var väldigt användbar och lättläst. 
+    Jag tycker Composer är extra intressant eftersom det gör det enkelt att lägga till färdiga paket.
+    Även avsnitten om kodstil, säkerhet och testning var intressanta.
+    Jag vill gärna lära mig mer om testning, det verkar användbart för att hitta fel tidigt. 
+    Kodstilen som föreslås gör koden tydligare och lättare att förstå.</p>
+
+    <p>Min TIL för detta kmom är vad Symfony och hur det används.
+    Jag hade förväntat mig att det skulle vara betydligt mer komplicerat att komma igång, men tack vare strukturen från övningen har det gått ganska smidigt. 
+    Jag lärde mig också hur routing fungerar i Symfony och hur man bygger upp JSON API:er. 
+    Jag tycker det bra att följa ramverkets struktur för att det ska gå snabbt och smidigt att skriva kod.</p>
+</section>
+
 {% endblock %}

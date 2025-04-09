@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Dra ett kort{% endblock %}
+
+{% block main %}
+<h1>Dra ett kort</h1>
+
+{% if card %}
+    <p>Du drog: <span class="card">{{ card.getAsString() }}</span></p>
+    <p>Kvar i leken: {{ cardsLeft }} kort</p>
+{% else %}
+    <p>Inga kort kvar i leken!</p>
+{% endif %}
+
+<p><a href="{{ path('card_deck_draw') }}">Dra ett till kort</a></p>
+<p><a href="{{ path('card_deck_shuffle') }}">Blanda om leken</a></p>
+<p><a href="{{ path('card_home') }}">Tillbaka till kortmeny</a></p>
+{% endblock %}

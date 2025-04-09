@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Hela kortleken{% endblock %}
+
+{% block main %}
+<h1>Hela kortleken</h1>
+
+<p>Här visas alla kort i kortleken i ordning.</p>
+
+<div>
+    {% for card in deck %}
+        <span class="card">{{ card.getAsString() }}</span>
+    {% endfor %}
+</div>
+
+<p><a href="{{ path('card_home') }}">Tillbaka</a></p>
+{% endblock %}

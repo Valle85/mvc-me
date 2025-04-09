@@ -46,7 +46,7 @@ class LuckyControllerJson extends AbstractController
 
         return $this->json($data, 200, [], ['json_encode_options' => JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE]);
     }
-    
+
     #[Route("/api/", name: "api_index")]
     public function index(): Response
     {

@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Sessionsdata{% endblock %}
+
+{% block main %}
+<h1>Sessionsinnehåll</h1>
+
+{% if session is empty %}
+    <p>Sessionen är tom.</p>
+{% else %}
+    <ul>
+        {% for key, value in session %}
+            <li><strong>{{ key }}:</strong>
+                <pre>{{ dump(value) }}</pre>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<p><a href="{{ path('card_home') }}">Tillbaka till kortmeny</a></p>
+{% endblock %}
