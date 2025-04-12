@@ -2,7 +2,7 @@
 
 {% block title %}Redovisning{% endblock %}
 
-{% block body %}
+{% block main %}
     <h1>Redovisning</h1>
 
 <section id="kmom01">
@@ -35,6 +35,30 @@
     Jag hade förväntat mig att det skulle vara betydligt mer komplicerat att komma igång, men tack vare strukturen från övningen har det gått ganska smidigt. 
     Jag lärde mig också hur routing fungerar i Symfony och hur man bygger upp JSON API:er. 
     Jag tycker det bra att följa ramverkets struktur för att det ska gå snabbt och smidigt att skriva kod.</p>
+</section>
+
+<section id="kmom02">
+    <h2>kmom02</h2>
+    <p>Arv utökar basklassens beteende. Exempelvis ärver hund från djur. Subklassen ärver från basklassen och ska kunna ersätta basklassen.
+    Komposition kan man säga att när en klass innehåller en annan klass, exempelvis har ett hus rum och rum kan inte finnas om huset brinner ned.
+    Interface är kontrakt av klassstrukturen, som avtal som gäller metoder. Det används ofta när man vill säkerställa att vissa metoder finns men inte hur de är implementerade.
+    Slutligen Trait är återanvändbar fristående koddel. Den används istället för multipelt arv eftersom PHP inte stödjer det direkt, och det är ett sätt att återanvända kod i olika klasser utan arv.</p>
+
+    <p>För att lösa uppgiften gjorde jag först övningen och träningsuppgifterna och pig-spelet. Det gav mig en bra grund för att förstå hur objektorienterade konstruktioner fungerar i Symfony. 
+    Jag återanvände mycket av strukturen från övningen, men anpassade logiken för att hantera kort istället för tärningar. Kodstrukturen är exakt samma, vilket gjorde det lättare att komma igång. 
+    I src skapade jag en Card-mapp och inuti finns alla klasser som har med kort att göra. I controller-mappen finns både CardGameController och CardApiController, vilket gör att jag kan hantera både HTML-sidor och API-endpoints separat.</p>
+
+    <p>I templates skapade jag en separat card-mapp med alla templates-filer som behövdes. Alla templates utgår från base.html.twig, så jag kunde återanvända layouten enkelt. 
+    Det blev tydligt hur Symfony använder Twig och routes för att koppla samman logik och presentation. Jag använde också session för att spara kortleken, vilket påminde om hur man jobbade med flask.session i Python.
+    Jag tycker det var smidigt att följa strukturen som Symfony ger, eftersom det blir lätt att hitta och förstå var varje del hör hemma. Det gör också felsökning och vidareutveckling enklare.</p>
+
+    <p>Så här långt har det gått bra att jobba i Symfony. Det påminner lite om Flask från oopython-kursen, vilket gör att koncepten känns bekanta.
+    Koden är uppdelad i filer som alla är länkade till varandra och följer ett tydligt flöde. När man vänjer sig vid strukturen känns det ganska naturligt att arbeta med controllers, templates och klasser separat.
+    Jag gillar att man får en bra separation av logik och presentation. Det hjälper till att hålla koden ren och organiserad, och gör att jag känner att jag har bra kontroll på helheten.</p>
+
+    <p>Min TIL för detta kmom är att jag förstod vad ett API egentligen är. Jag visste inte riktigt vad man skulle ha det till i början, men nu har jag lärt mig att det är som ett sätt för ett program att ge ut data utan att man behöver bygga en hel hemsida. 
+    Det är bra om man till exempel ska bygga en app eller om något annat program ska hämta information från min kod. Jag lärde mig också skillnaden mellan vanliga routes och POST-routes i ett API, att vissa bara fungerar om man skickar ett formulär eller en POST-förfrågan.
+    Jag tycker det var lite klurigt först men efter att ha testat med formulär och fått det att fungera så känns det mycket tydligare. Det känns som något jag kommer använda mer framöver.</p>
 </section>
 
 {% endblock %}
