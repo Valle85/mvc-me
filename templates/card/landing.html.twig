@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Kortspel 21{% endblock %}
+
+{% block main %}
+    <h1>Välkommen till kortspelet 21</h1>
+
+    <p>I detta spel möter du banken i en kamp om att nå så nära 21 som möjligt utan att gå över. Dra kort, stanna i tid och hoppas på turen!</p>
+
+    <h2>Spelregler</h2>
+    <ul>
+        <li>Ess är värt 1 eller 14.</li>
+        <li>Knekt, Dam, Kung är värda 10.</li>
+        <li>Spelaren drar kort tills den stannar eller blir tjock (över 21).</li>
+        <li>Banken drar tills den har minst 17 poäng.</li>
+        <li>Banken vinner vid lika poäng eller om spelaren blir tjock.</li>
+    </ul>
+
+    <p>
+        <a href="{{ path('game_doc') }}">Läs dokumentation om spelet</a>
+    </p>
+
+    <a href="{{ path('game_start') }}" class="btn btn-primary">Starta spelet</a>
+{% endblock %}

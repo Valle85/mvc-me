@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 // use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-class CardGameController extends AbstractController
+class GameController extends AbstractController
 {
     #[Route("/card", name: "card_home")]
     public function home(): Response
@@ -115,5 +115,11 @@ class CardGameController extends AbstractController
     public function documentation(): Response
     {
         return $this->render('game/doc.html.twig');
+    }
+
+    #[Route("/game/start", name: "game_start")]
+    public function start(): Response
+    {
+        return $this->render('game/start.html.twig');
     }
 }

@@ -1,0 +1,59 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Dokumentation - Game21{% endblock %}
+
+{% block main %}
+<h1>Dokumentation för kortspelet 21</h1>
+
+<h2>Om spelet</h2>
+<p>Spelet 21 går ut på att komma så nära poängen 21 som möjligt utan att gå över. Spelaren och banken turas om att dra kort. Den som kommer närmast 21 vinner. Ess är värt 1 eller 14.</p>
+
+<h2>Planering av klasser</h2>
+<ul>
+    <li><strong>Game21.php</strong> – grundläggande spelklass som hanterar spelets huvudlogik. Skapar spelaren och används för att samordna spelets olika delar som bank, kortlek och rundor.</li>
+    <li><strong>Bank.php</strong> – representerar banken i spelet. Har en hand med kort och spelar enligt fasta regler, drar kort upp till 17 poäng. Använder samma mekanismer som spelaren för att beräkna poäng.</li>
+    <li><strong>Player.php</strong> – representerar en spelare i spelet. Innehåller spelarens namn och metod för att hämta det.</li>
+    <li><strong>CardHand.php</strong> – hanterar en spelares eller bankens kort på handen. Låter oss lägga till kort, hämta antalet kort, få kortens värde och dess färg och värde.</li>
+    <li><strong>Round.php</strong> – representerar en spelrunda mellan spelare och bank. Hanterar spelets logik, turordning, drag av kort och avgör vem som vinner.</li>
+    <li><strong>DeckOfCards.php</strong> – representerar en kortlek med 52 spelkort.</li>
+    <li><strong>CardGraphic.php</strong> – ärver från Card och lägger till grafisk representation av spelkort.</li>
+    <li><strong>Card.php</strong> – representerar spelkort med färg och värde.</li>
+</ul>
+
+<h2>Flödesschema</h2>
+<img src="{{ asset('img/flowchart.png') }}" alt="Flödesschema för spelet 21" style="max-width: 100%;">
+
+<h2>Pseudokod för spelrunda</h2>
+<pre>
+Start
+
+Visa regler och spelplan 
+
+Spelaren får sitt första kort
+
+Loop
+    Visa spelarens hand och poäng
+    Fråga, vill spelaren ta ett till kort?
+    If ja: ge nytt kort, räkna ut totalen
+    If totalen >21, visa att spelaren förlorade och avsluta rundan 
+    Else: gå till bankens tur, break
+
+Bankens tur
+
+Loop
+    Räkna bankens total
+    If total < 17: dra nytt kort till banken 
+    Else: break 
+
+Räkna ut bankens total 
+If bank > 21
+	- Visa att spelaren vinner 
+If bank >= spelare 
+	- Visa att banken vinner
+Else 
+	- Visa att spelaren vinner
+
+Erbjud val
+Starta ny runda eller avsluta 
+</pre>
+{% endblock %}
