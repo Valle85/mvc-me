@@ -61,4 +61,33 @@
     Jag tycker det var lite klurigt först men efter att ha testat med formulär och fått det att fungera så känns det mycket tydligare. Det känns som något jag kommer använda mer framöver.</p>
 </section>
 
+<section id="kmom03">
+    <h2>kmom03</h2>
+    <p>Jag tyckte det var väldigt nyttigt att planera min kod i förväg med både flödesschema och pseudokod.
+    Det gjorde att jag visste exakt vad jag skulle göra innan jag började skriva själva koden, vilket sparade mycket tid och gjorde arbetet mer fokuserat.
+    Flödesschemat hjälpte mig att förstå hur spelets logik skulle flöda från början till slut, och pseudokoden gjorde det enkelt att översätta tankarna till faktisk kod.
+    Jag kommer definitivt att fortsätta använda pseudokod framöver – det är ett kraftfullt verktyg i min problemlösning.</p>
+
+    <p>Jag började uppgiften med att planera hur jag ville strukturera allt. Jag valde spelet 21 och gjorde en tydlig plan för hur arbetet skulle delas upp över två dagar.
+    Först skrev jag pseudokod, beskrev alla klasser och ritade ett flödesschema.
+    Därefter skapade jag en dokumentationssida under routen /game/doc och valde att jobba i en ny controller för att hålla spelet tydligt avgränsat från övriga delar.
+    All dokumentation samlades där, inklusive klassbeskrivningar, flödesschema och pseudokod.
+    Sen gick jag vidare med landningssidan för spelet, där jag la till spelregler, en knapp för att starta, och en länk till dokumentationen – samt länkade den från navbaren. Efter det tog jag tag i själva kortspelklasserna.
+    Jag återanvände så mycket som möjligt från tidigare kod, men byggde också ut det som behövdes, som Game21, Bank, och en uppdaterad Player.
+    Spelmekaniken kom därefter: jag skapade routes och funktioner för att dra kort, stanna och börja om, samt för att visa vinnaren.
+    Slutligen implementerade jag sessionhantering så att spelet kan pågå över flera requests.
+    Jag känner mig nöjd med helheten och tycker att applikationen är strukturerad och tydlig. Det finns alltid detaljer att putsa på, men som helhet tycker jag att jag lyckades bra.</p>
+
+    <p>Jag tycker att Symfony ger en tydlig struktur, vilket har hjälpt mig att förstå var alla delar av koden ska ligga.
+    Det gör det enklare att organisera både logik, vyer och routes. Samtidigt har jag märkt att det kan bli lite tungt när man bygger flera olika deluppgifter i samma projekt.
+    Jag har till exempel kvar gammal kod i min nya controller, mest för att jag är rädd att något ska sluta fungera om jag tar bort den.
+    Eftersom varje uppgift ofta kräver egna controllers, templates, klasser och routes blir det snabbt många mappar och filer.
+    Därför märker jag hur viktigt det är att vara noggrann redan från början med hur man döper saker och hur man delar upp projektet. Det har blivit en viktig lärdom för mig.</p>
+
+    <p>Min största TIL (Today I Learned) från det här kursmomentet är hur användbart det är att arbeta med flödesscheman och pseudokod.
+    Flödesschemat var helt nytt för mig, men visade sig vara en väldigt bra strategi för att förstå och planera hela spelprocessen visuellt.
+    Pseudokod var också ett otroligt effektivt verktyg som jag verkligen kommer att fortsätta använda.
+    Det hjälpte mig att strukturera mina tankar innan jag skrev riktig kod och gjorde hela utvecklingsprocessen mycket tydligare.</p>
+</section>
+
 {% endblock %}
