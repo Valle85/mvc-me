@@ -123,4 +123,60 @@ class GameController extends AbstractController
     {
         return $this->render('game/start.html.twig');
     }
+
+    #[Route("/game/play", name: "game_play")]
+    public function play(SessionInterface $session): Response
+    {
+        $game = $session->get("game21");
+
+        if (!$game) {
+            $game = new Game21("Valeriia");
+            $game->playerDrawCard();
+            $game->playerDrawCard();
+            $session->set("game21", $game);
+        }
+
+        $data = [
+            "hand" => $game->getPlayer()->getHand()->getString(),
+            "total" => $game->getPlayer()->getTotalValue()
+        ];
+
+        return $this->render('game/play.html.twig', $data);
+    }
+
+    #[Route("/game/draw", name: "game_draw", methods: ["POST"])]
+    public function draw(SessionInterface $session): Response
+    {
+        $game = $session->get("game21");
+
+        if ($game) {
+            $game->playerDrawCard();
+            $session->set("game21", $game);
+        }
+
+        return $this->redirectToRoute('game_play');
+    }
+
+    #[Route("/game/stay", name: "game_stay", methods: ["POST"])]
+    public function stay(SessionInterface $session): Response
+    {
+        $game = $session->get("game21");
+
+        if ($game) {
+            $game->bankTurn();
+            $session->set("game21", $game);
+            $session->set("game21_result", $game->getWinner());
+        }
+
+        return $this->redirectToRoute('game_play');
+    }
+
+    #[Route("/game/reset", name: "game_reset", methods: ["POST"])]
+    public function reset(SessionInterface $session): Response
+    {
+        $session->remove("game21");
+        $session->remove("game21_result");
+
+        return $this->redirectToRoute('game_play');
+    }
 }

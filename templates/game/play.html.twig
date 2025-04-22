@@ -1,0 +1,26 @@
+<h1>Spelet 21</h1>
+
+<p>Dina kort:</p>
+<ul>
+    {% for card in hand %}
+        <li>{{ card }}</li>
+    {% endfor %}
+</ul>
+
+<p>Total poäng: {{ total }}</p>
+
+<form method="post" action="{{ path('game_draw') }}">
+    <button type="submit">Dra ett kort</button>
+</form>
+
+<form method="post" action="{{ path('game_stay') }}">
+    <button type="submit">Stanna</button>
+</form>
+
+<form method="post" action="{{ path('game_reset') }}">
+    <button type="submit">Starta ny runda</button>
+</form>
+
+{% if app.session.get('game21_result') %}
+    <h2>Resultat: {{ app.session.get('game21_result') }}</h2>
+{% endif %}

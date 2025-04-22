@@ -35,4 +35,42 @@ class Game21
     {
         return $this->deck;
     }
+
+    public function playerDrawCard(): void
+    {
+        $card = $this->deck->draw();
+        if ($card) {
+            $this->player->takeCard($card);
+        }
+    }
+
+    public function bankTurn(): void
+    {
+        while ($this->bank->getTotalValue() < 17) {
+            $card = $this->deck->draw();
+            if ($card) {
+                $this->bank->takeCard($card);
+            }
+        }
+    }
+
+    public function getWinner(): string
+    {
+        $playerScore = $this->player->getTotalValue();
+        $bankScore = $this->bank->getTotalValue();
+
+        if ($playerScore > 21) {
+            return "Banken vinner";
+        }
+
+        if ($bankScore > 21) {
+            return "Spelaren vinner";
+        }
+
+        if ($bankScore >= $playerScore) {
+            return "Banken vinner";
+        }
+
+        return "Spelaren vinner";
+    }
 }
