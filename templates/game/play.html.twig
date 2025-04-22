@@ -1,26 +1,33 @@
-<h1>Spelet 21</h1>
+{% extends "base.html.twig" %}
 
-<p>Dina kort:</p>
-<ul>
-    {% for card in hand %}
-        <li>{{ card }}</li>
-    {% endfor %}
-</ul>
+{% block title %}Game21{% endblock %}
+{% block main %}
+    <h1>Spelet 21</h1>
 
-<p>Total poäng: {{ total }}</p>
+    <p>Dina kort:</p>
+    <div>
+        {% for card in hand %}
+            <span class="card">{{ card }}</span>
+        {% endfor %}
+    </div>
 
-<form method="post" action="{{ path('game_draw') }}">
-    <button type="submit">Dra ett kort</button>
-</form>
+    <p><strong>Total poäng:</strong> {{ total }}</p>
 
-<form method="post" action="{{ path('game_stay') }}">
-    <button type="submit">Stanna</button>
-</form>
+    <div class="game-buttons">
+    <form method="post" action="{{ path('game_draw') }}">
+        <button type="submit">🎴 Dra ett kort</button>
+    </form>
 
-<form method="post" action="{{ path('game_reset') }}">
-    <button type="submit">Starta ny runda</button>
-</form>
+    <form method="post" action="{{ path('game_stay') }}">
+        <button type="submit">🛑 Stanna</button>
+    </form>
 
-{% if app.session.get('game21_result') %}
-    <h2>Resultat: {{ app.session.get('game21_result') }}</h2>
-{% endif %}
+    <form method="post" action="{{ path('game_reset') }}">
+        <button type="submit">🔁 Ny runda</button>
+    </form>
+    </div>
+
+    {% if app.session.get('game21_result') %}
+        <h2>Resultat: {{ app.session.get('game21_result') }}</h2>
+    {% endif %}
+{% endblock %}

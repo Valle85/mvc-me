@@ -121,7 +121,7 @@ class GameController extends AbstractController
     #[Route("/game/start", name: "game_start")]
     public function start(): Response
     {
-        return $this->render('game/start.html.twig');
+        return $this->redirectToRoute('game_play');
     }
 
     #[Route("/game/play", name: "game_play")]

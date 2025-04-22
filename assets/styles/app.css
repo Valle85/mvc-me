@@ -150,3 +150,32 @@ ul.dicearea li{
     box-shadow: 0 0 5px #aaa;
     background-color: white;
 }
+
+/**
+* Kmom03
+*/
+
+.game-buttons {
+    margin: 1rem 0;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.game-buttons form {
+    display: inline;
+}
+
+.game-buttons button {
+    font-size: 1em;
+    padding: 0.5em 1em;
+    border: 2px solid #aaa;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.game-buttons button:hover {
+    background-color: #eee;
+}

@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use App\Card\DeckOfCards;
+use App\Game\Game21;
 
 class CardApiController extends AbstractController
 {
@@ -75,6 +76,39 @@ class CardApiController extends AbstractController
         $response = new JsonResponse($responseData);
         $response->setEncodingOptions(JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
+        return $response;
+    }
+
+    #[Route("/api/game", name: "api_game_status", methods: ["GET"])]
+    public function gameStatus(SessionInterface $session): JsonResponse
+    {
+        $game = $session->get("game21");
+
+        if (!$game instanceof Game21) {
+            return new JsonResponse(["error" => "Spelet har inte startat."], 404);
+        }
+
+        $playerHand = $game->getPlayer()->getHand()->getString();
+        $playerScore = $game->getPlayer()->getTotalValue();
+
+        $bankHand = $game->getBank()->getHand()->getString();
+        $bankScore = $game->getBank()->getTotalValue();
+
+        $result = $session->get("game21_result");
+
+        $data = [
+            "player" => [
+                "hand" => $playerHand,
+                "score" => $playerScore
+            ],
+            "bank" => [
+                "hand" => $bankHand,
+                "score" => $bankScore
+            ],
+            "result" => $result
+        ];
+        $response = new JsonResponse($data, 200);
+        $response->setEncodingOptions(JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         return $response;
     }
 }

@@ -16,7 +16,8 @@ class Player
         $this->hand = new CardHand();
     }
 
-    public function getName(): string {
+    public function getName(): string
+    {
         return $this->name;
     }
 
@@ -30,16 +31,16 @@ class Player
         $this->hand->add($card);
     }
 
-    public function getTotalValue(): int 
+    public function getTotalValue(): int
     {
-        $values=$this->hand->getValues();
+        $values = $this->hand->getValues();
         $total = 0;
         $numAces = 0;
 
         foreach ($values as $value) {
             if ($value === "A") {
                 $numAces++;
-                $total +=1;
+                $total += 1;
             } elseif (in_array($value, ["J", "Q", "K"])) {
                 $total += 10;
             } else {
@@ -51,6 +52,6 @@ class Player
             $total += 13;
             $numAces--;
         }
-        return $total
+        return $total;
     }
 }

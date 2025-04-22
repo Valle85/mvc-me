@@ -21,7 +21,7 @@ class Game21
         $this->deck->shuffle();
     }
 
-    public function getPlayer() 
+    public function getPlayer()
     {
         return $this->player;
     }
@@ -60,17 +60,17 @@ class Game21
         $bankScore = $this->bank->getTotalValue();
 
         if ($playerScore > 21) {
-            return "Banken vinner";
+            return "Banken vinner (Spelaren: {$playerScore}, Banken: {$bankScore})";
         }
 
         if ($bankScore > 21) {
-            return "Spelaren vinner";
+            return "Spelaren vinner (Spelaren: {$playerScore}, Banken: {$bankScore})";
         }
 
         if ($bankScore >= $playerScore) {
-            return "Banken vinner";
+            return "Banken vinner (Spelaren: {$playerScore}, Banken: {$bankScore})";
         }
 
-        return "Spelaren vinner";
+        return "Spelaren vinner (Spelaren: {$playerScore}, Banken: {$bankScore})";
     }
 }
