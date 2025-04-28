@@ -19,6 +19,9 @@ class CardGraphic extends Card
     public function getAsString(): string
     {
         $symbol = $this->suitSymbols[strtolower($this->suit)] ?? $this->suit;
-        return "[{$this->value}{$symbol}]";
+        $coloredSymbol = in_array(strtolower($this->suit), ["hearts", "diamonds"])
+            ? "<span style='color: red;'>{$symbol}</span>"
+            : $symbol;
+        return "[{$this->value}{$coloredSymbol}]";
     }
 }

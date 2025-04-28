@@ -48,19 +48,20 @@ class CardGameController extends AbstractController
     public function drawOne(SessionInterface $session): Response
     {
         $deck = $session->get("card_deck");
-
+    
         if (!$deck) {
             $deck = new DeckOfCards();
+            $session->set("card_deck", $deck); // Viktigt!
         }
-
+    
         $card = $deck->draw();
-        $session->set("card_deck", $deck);
-
+        $session->set("card_deck", $deck); // Spara alltid tillbaka efter dragning
+    
         $data = [
             "card" => $card,
             "cardsLeft" => $deck->count(),
         ];
-
+    
         return $this->render('card/draw.html.twig', $data);
     }
 
@@ -68,20 +69,21 @@ class CardGameController extends AbstractController
     public function drawMultiple(int $number, SessionInterface $session): Response
     {
         $deck = $session->get("card_deck");
-
+    
         if (!$deck) {
             $deck = new DeckOfCards();
+            $session->set("card_deck", $deck); // Viktigt!
         }
-
+    
         $cards = $deck->drawMultiple($number);
-        $session->set("card_deck", $deck);
-
+        $session->set("card_deck", $deck); // Spara alltid tillbaka efter dragning
+    
         $data = [
             "cards" => $cards,
             "cardsLeft" => $deck->count(),
             "requested" => $number
         ];
-
+    
         return $this->render('card/draw_many.html.twig', $data);
     }
 

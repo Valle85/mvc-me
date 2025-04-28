@@ -7,7 +7,7 @@
     <p>Dina kort:</p>
     <div>
         {% for card in hand %}
-            <span class="card">{{ card }}</span>
+            <span class="card">{{ card|raw }}</span>
         {% endfor %}
     </div>
 

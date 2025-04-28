@@ -17,7 +17,7 @@ class CardApiController extends AbstractController
         $deck = new DeckOfCards();
         $cards = $deck->getAll();
 
-        $jsonCards = array_map(fn ($card) => $card->getAsString(), $cards);
+        $jsonCards = array_map(fn ($card) => "[{$card->getValue()}{$card->getSuitSymbol()}]", $cards);
 
         $response = new JsonResponse(["deck" => $jsonCards]);
         $response->setEncodingOptions(JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
@@ -33,7 +33,7 @@ class CardApiController extends AbstractController
 
         $session->set("card_deck", $deck);
 
-        $cards = array_map(fn ($card) => $card->getAsString(), $deck->getAll());
+        $cards = array_map(fn ($card) => "[{$card->getValue()}{$card->getSuitSymbol()}]", $deck->getAll());
 
         $response = new JsonResponse(["deck" => $cards]);
         $response->setEncodingOptions(JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
@@ -44,13 +44,18 @@ class CardApiController extends AbstractController
     #[Route("/api/deck/draw", name: "api_deck_draw", methods: ["POST"])]
     public function drawOne(SessionInterface $session): JsonResponse
     {
-        $deck = $session->get("card_deck") ?? new DeckOfCards();
+        $deck = $session->get("card_deck");
+
+        if (!$deck) {
+            $deck = new DeckOfCards();
+            $session->set("card_deck", $deck);
+        }
 
         $card = $deck->draw();
         $session->set("card_deck", $deck);
 
         $responseData = [
-            "card" => $card ? $card->getAsString() : null,
+            "card" => $card ? "[{$card->getValue()}{$card->getSuitSymbol()}]" : null,
             "cards_left" => $deck->count()
         ];
 
@@ -63,13 +68,18 @@ class CardApiController extends AbstractController
     #[Route("/api/deck/draw/{number<\d+>}", name: "api_deck_draw_number", methods: ["POST"])]
     public function drawMultiple(int $number, SessionInterface $session): JsonResponse
     {
-        $deck = $session->get("card_deck") ?? new DeckOfCards();
+        $deck = $session->get("card_deck");
+
+        if (!$deck) {
+            $deck = new DeckOfCards();
+            $session->set("card_deck", $deck);
+        }
 
         $cards = $deck->drawMultiple($number);
         $session->set("card_deck", $deck);
 
         $responseData = [
-            "cards" => array_map(fn ($card) => $card->getAsString(), $cards),
+            "cards" => array_map(fn ($card) => "[{$card->getValue()}{$card->getSuitSymbol()}]", $cards),
             "cards_left" => $deck->count()
         ];
 
@@ -107,6 +117,7 @@ class CardApiController extends AbstractController
             ],
             "result" => $result
         ];
+
         $response = new JsonResponse($data, 200);
         $response->setEncodingOptions(JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         return $response;

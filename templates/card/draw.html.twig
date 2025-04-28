@@ -6,7 +6,7 @@
 <h1>Dra ett kort</h1>
 
 {% if card %}
-    <p>Du drog: <span class="card">{{ card.getAsString() }}</span></p>
+    <p>Du drog: <span class="card">{{ card.getAsString()|raw }}</span>
     <p>Kvar i leken: {{ cardsLeft }} kort</p>
 {% else %}
     <p>Inga kort kvar i leken!</p>

@@ -9,7 +9,7 @@
 
 <div>
     {% for card in deck %}
-        <span class="card">{{ card.getAsString() }}</span>
+        <span class="card">{{ card.getAsString()|raw }}</span>
     {% endfor %}
 </div>
 

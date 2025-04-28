@@ -11,7 +11,7 @@
     <p>Du drog följande kort:</p>
     <div>
         {% for card in cards %}
-            <span class="card">{{ card.getAsString() }}</span>
+            <span class="card">{{ card.getAsString()|raw }}</span>
         {% endfor %}
     </div>
     <p>Kvar i leken: {{ cardsLeft }} kort</p>

@@ -2,36 +2,45 @@
 
 {% block main %}
     <h1>API-översikt</h1>
-    <p>JSON-API-routes som finns för kortleken:</p>
+
+    <p>JSON-API routes som finns för kortleken:</p>
+
+    <h2>GET-routes</h2>
     <ul>
-        <li><a href="{{ path('api_deck') }}">/api/deck</a> – Returnerar hela kortleken sorterad.</li>
-        <li>/api/deck/shuffle – Blandar kortleken (POST).</li>
-        <li>/api/deck/draw – Drar ett kort från leken samt visar antal kvar (POST).</li>
-        <li>/api/deck/draw/:number – Drar :number kort samt visar antal kvar (POST).</li>
+        <li><a href="{{ path('api_deck') }}">/api/deck</a> – Returnerar hela kortleken sorterad (GET)</li>
     </ul>
 
-    <h2>Testa POST-routes</h2>
+    <h2>POST-routes</h2>
+    <p>Dessa POST-routes kan testas med formulär:</p>
 
     <form method="post" action="{{ path('api_deck_shuffle') }}">
-        <button type="submit">POST /api/deck/shuffle</button>
+        <button type="submit">POST /api/deck/shuffle – Blanda kortleken</button>
     </form>
+
     <form method="post" action="{{ path('api_deck_draw') }}">
-        <button type="submit">POST /api/deck/draw (dra 1 kort)</button>
+        <button type="submit">POST /api/deck/draw – Dra 1 kort</button>
     </form>
-    <form method="post" action="{{ path('api_deck_draw_number', {'number': 3}) }}">
-        <label>
-            Dra antal kort:
-            <input type="number" name="number" value="3" min="1" max="52"
-                oninput="this.form.action='/api/deck/draw/' + this.value;">
+
+    <form id="drawForm" method="post" action="{{ path('api_deck_draw_number', {'number': 3}) }}">
+        <label for="numberInput">
+            Dra valfritt antal kort:
+            <input type="number" id="numberInput" name="number" value="3" min="1" max="52">
         </label>
         <button type="submit">POST /api/deck/draw/:number</button>
     </form>
 
+    <script>
+        document.getElementById('numberInput').addEventListener('input', function() {
+            const value = this.value || 1;
+            document.getElementById('drawForm').action = '/api/deck/draw/' + value;
+        });
+    </script>
+
     <h2>Övriga JSON-API:er</h2>
     <ul>
-        <li><a href="{{ path('api_lucky') }}">/api/lucky/number</a> – Returnerar ett lyckotal i JSON-format.</li>
-        <li><a href="{{ path('api_quote') }}">/api/quote</a> – Returnerar ett citat i JSON-format.</li>
-        <li><a href="{{ path('api_game_status') }}">/api/game</a> – Visar aktuell ställning i spelet 21 i JSON-format.</li>
+        <li><a href="{{ path('api_lucky') }}">/api/lucky/number</a> – Returnerar ett lyckotal (GET)</li>
+        <li><a href="{{ path('api_quote') }}">/api/quote</a> – Returnerar ett citat (GET)</li>
+        <li><a href="{{ path('api_game_status') }}">/api/game</a> – Visar ställningen i spelet 21 (GET)</li>
     </ul>
 
     <p><a href="{{ path('card_home') }}">Tillbaka till kortmeny</a></p>

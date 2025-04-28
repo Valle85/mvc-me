@@ -27,4 +27,16 @@ class Card
     {
         return "[{$this->value}{$this->suit}]";
     }
+
+    public function getSuitSymbol(): string
+    {
+        $symbols = [
+            "hearts" => "♥",
+            "diamonds" => "♦",
+            "clubs" => "♣",
+            "spades" => "♠",
+        ];
+
+        return $symbols[strtolower($this->suit)] ?? $this->suit;
+    }
 }
