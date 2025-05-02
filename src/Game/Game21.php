@@ -7,12 +7,21 @@ use App\Card\CardHand;
 use App\Game\Player;
 use App\Game\Bank;
 
+/**
+ * Controls the logic of the Game21 card game.
+ * Manages a player, a bank, and a deck of cards.
+ */
 class Game21
 {
     private Player $player;
     private Bank $bank;
     private DeckOfCards $deck;
 
+    /**
+     * Constructor initializes player, bank, and shuffled deck.
+     *
+     * @param string $playerName The name of the player.
+     */
     public function __construct(string $playerName = "Spelare")
     {
         $this->player = new Player($playerName);
@@ -21,21 +30,39 @@ class Game21
         $this->deck->shuffle();
     }
 
+    /**
+     * Get the player object.
+     *
+     * @return Player The player.
+     */
     public function getPlayer()
     {
         return $this->player;
     }
 
+    /**
+     * Get the bank object.
+     *
+     * @return Bank The bank.
+     */
     public function getBank(): Bank
     {
         return $this->bank;
     }
 
+    /**
+     * Get the deck of cards.
+     *
+     * @return DeckOfCards The deck.
+     */
     public function getDeck(): DeckOfCards
     {
         return $this->deck;
     }
 
+    /**
+     * Let the player draw one card from the deck.
+     */
     public function playerDrawCard(): void
     {
         $card = $this->deck->draw();
@@ -44,6 +71,9 @@ class Game21
         }
     }
 
+    /**
+     * Let the bank draw cards until the total is at least 17.
+     */
     public function bankTurn(): void
     {
         while ($this->bank->getTotalValue() < 17) {
@@ -54,6 +84,11 @@ class Game21
         }
     }
 
+    /**
+     * Determine who wins the game based on total values.
+     *
+     * @return string A message declaring the winner.
+     */
     public function getWinner(): string
     {
         $playerScore = $this->player->getTotalValue();
