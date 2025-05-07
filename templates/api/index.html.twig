@@ -8,6 +8,8 @@
     <h2>GET-routes</h2>
     <ul>
         <li><a href="{{ path('api_deck') }}">/api/deck</a> – Returnerar hela kortleken sorterad (GET)</li>
+        <li><a href="{{ path('api_library_books') }}">📘 API: Alla böcker (JSON)</a><br></li>
+        <li><a href="{{ path('api_library_book_isbn', {'isbn': books[0].isbn}) }}">📗 API: Första bokens ISBN</a><li>
     </ul>
 
     <h2>POST-routes</h2>

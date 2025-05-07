@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bibliotek{% endblock %}
+
+{% block main %}
+
+
+<div class="example-wrapper">
+    <h1>Bibliotek 📚</h1>
+
+    <p><a href="{{ path('library_create') }}">Lägg till ny bok</a></p>
+
+    <table>
+        <tr>
+            <th>Titel</th>
+            <th>ISBN</th>
+            <th>Författare</th>
+            <th></th>
+        </tr>
+        {% for book in books %}
+            <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.isbn }}</td>
+                <td>{{ book.author }}</td>
+                <td><a href="{{ path('library_show', {id: book.id}) }}">Visa</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

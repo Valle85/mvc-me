@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\BookRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -48,8 +49,11 @@ class LuckyControllerJson extends AbstractController
     }
 
     #[Route("/api/", name: "api_index")]
-    public function index(): Response
+    public function index(BookRepository $bookRepo): Response
     {
-        return $this->render('api/index.html.twig');
+        $books = $bookRepo->findAll();
+        return $this->render('api/index.html.twig', [
+            'books' => $books
+        ]);
     }
 }

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Uppdatera bok{% endblock %}
+
+{% block main %}
+<div class="example-wrapper">
+    <h1>Uppdatera bok</h1>
+
+    <form method="post">
+        <p><label>Titel: <input type="text" name="title" value="{{ book.title }}" required></label></p>
+        <p><label>ISBN: <input type="text" name="isbn" value="{{ book.isbn }}" required></label></p>
+        <p><label>Författare: <input type="text" name="author" value="{{ book.author }}" required></label></p>
+        <p><label>Bild-URL: <input type="text" name="image" value="{{ book.image }}" required></label></p>
+        <p><button type="submit">Spara ändringar</button></p>
+    </form>
+
+    <p><a href="{{ path('library_index') }}">Tillbaka</a></p>
+</div>
+{% endblock %}
