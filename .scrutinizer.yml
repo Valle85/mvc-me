@@ -34,7 +34,14 @@ filter:
         - tests/
 
 tools:
-    php_analyzer: true
+    php_analyzer:
+        enabled: true
+        config:
+            analyze_doc_comments: true
+            check_style: true
+            check_visibility: true
+            deprecated_code: true
+            unreachable_code: true
     php_cpd: true
     php_mess_detector: true
     php_loc: true
