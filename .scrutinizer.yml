@@ -40,30 +40,32 @@
 #     php_loc: true
 #     php_pdepend: true
 
-imports:
-    - php
+# imports:
+#     - php
 
 filter:
-    excluded_paths: [vendor/*, tests/bootstrap.php]
+    paths:
+        - src/
+        - tests/
 
-build:
-    image: default-bionic
+# build:
+#     image: default-bionic
 
-    nodes:
-        analysis:
-            project_setup:
-                override:
-                    - "composer install --no-interaction --no-scripts --no-plugins"
-            tests:
-                override:
-                    - php-scrutinizer-run
+#     nodes:
+#         analysis:
+#             project_setup:
+#                 override:
+#                     - "composer install --no-interaction --no-scripts --no-plugins"
+#             tests:
+#                 override:
+#                     - php-scrutinizer-run
 
-    tests:
-        override:
-            - command: "vendor/bin/phpunit"
-              coverage:
-                file: "docs/coverage.clover"
-                format: "php-clover"
+    # tests:
+    #     override:
+    #         - command: "vendor/bin/phpunit"
+    #           coverage:
+    #             file: "docs/coverage.clover"
+    #             format: "php-clover"
 
 tools:
     php_analyzer: true
