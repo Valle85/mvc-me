@@ -6,7 +6,7 @@ filter:
 
 build:
     image: default-bionic
-    root_path: mvc-report
+    root_path: build
 
 
     nodes:
