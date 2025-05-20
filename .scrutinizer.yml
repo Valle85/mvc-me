@@ -17,7 +17,7 @@ build:
                     # version: 8.2.4
             dependencies:
                 before:
-                    - composer self-update
+                    - - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
         analysis:
             tests:
                 override:
