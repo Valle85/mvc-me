@@ -8,6 +8,7 @@ filter:
 
 build:
     image: default-bionic
+    project_root: build
 
     nodes:
         my-tests:
