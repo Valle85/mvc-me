@@ -9,13 +9,13 @@ build:
 
     nodes:
         my-tests:
-            project_root: build
             environment:
                 php:
                     version: 8.3.3
                     # version: 8.1.13
                     # version: 8.1.17
                     # version: 8.2.4
+                working_directory: build
         analysis:
             tests:
                 override:
