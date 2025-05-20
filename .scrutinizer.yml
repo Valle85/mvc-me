@@ -5,25 +5,30 @@ filter:
     excluded_paths: [vendor/*, tests/*]
 
 build:
-    image: default-jammy
-
-    dependencies:
-        before:
-            - curl -sS https://getcomposer.org/installer | php && mv composer.phar composer
-        override:
-            - ./composer install --no-scripts
-
-    tests:
-        override:
-            - command: "./composer phpunit"
-              coverage:
-                  file: "docs/coverage.clover"
-                  format: "php-clover"
+    image: default-bionic
 
     nodes:
+        my-tests:
+            environment:
+                php:
+                    version: 8.3.3
+            dependencies:
+                before:
+                    - curl -sS https://getcomposer.org/installer | php && mv composer.phar composer
+                override:
+                    - ./composer install --no-scripts
+            tests:
+                override:
+                    - command: "./composer phpunit"
+                      coverage:
+                          file: "docs/coverage.clover"
+                          format: "php-clover"
+
         analysis:
             tests:
                 override:
                     - php-scrutinizer-run
+
 tools:
     external_code_coverage: true
+
