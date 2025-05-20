@@ -1,5 +1,3 @@
-project_root: report
-
 imports:
     - php
 
@@ -18,7 +16,7 @@ build:
                 before:
                     - curl -sS https://getcomposer.org/installer | php && mv composer.phar composer
                 override:
-                    - ./composer install --no-scripts
+                    - cd report && ../composer install --no-scripts
         analysis:
             tests:
                 override:
@@ -26,7 +24,7 @@ build:
 
     tests:
         override:
-            - command: "./composer phpunit"
+            - command: "cd report && ../composer phpunit"
               coverage:
-                  file: "docs/coverage.clover"
+                  file: "report/docs/coverage.clover"
                   format: "php-clover"
