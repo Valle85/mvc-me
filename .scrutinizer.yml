@@ -15,8 +15,9 @@ build:
                     # version: 8.1.13
                     # version: 8.1.17
                     # version: 8.2.4
-            commands:
-                - composer self-update
+            dependencies:
+                before:
+                    - composer self-update
         analysis:
             tests:
                 override:
