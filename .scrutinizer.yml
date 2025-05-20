@@ -18,7 +18,7 @@ build:
             dependencies:
                 before:
                     - curl -sS https://getcomposer.org/installer | php && mv composer.phar composer
-                commands:
+                override:
                     - ./composer update --no-plugins --no-scripts
 
         analysis:
