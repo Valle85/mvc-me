@@ -5,7 +5,7 @@ filter:
     excluded_paths: [vendor/*, tests/*]
 
 build:
-    image: php:8.3
+    image: default-jammy
 
     dependencies:
         before:
