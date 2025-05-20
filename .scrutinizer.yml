@@ -5,22 +5,13 @@ filter:
     excluded_paths: [vendor/*, tests/*]
 
 build:
-    image: default-bionic
+    image: php:8.3
 
-    nodes:
-        my-tests:
-            environment:
-                php:
-                    version: 8.3.3
-            dependencies:
-                before:
-                    - curl -sS https://getcomposer.org/installer | php && mv composer.phar composer
-                override:
-                    - ./composer install --no-scripts
-        analysis:
-            tests:
-                override:
-                    - php-scrutinizer-run
+    dependencies:
+        before:
+            - curl -sS https://getcomposer.org/installer | php && mv composer.phar composer
+        override:
+            - ./composer install --no-scripts
 
     tests:
         override:
@@ -28,3 +19,9 @@ build:
               coverage:
                   file: "docs/coverage.clover"
                   format: "php-clover"
+
+    nodes:
+        analysis:
+            tests:
+                override:
+                    - php-scrutinizer-run
