@@ -1,5 +1,3 @@
-project_root: build
-
 imports:
     - php
 
@@ -8,10 +6,10 @@ filter:
 
 build:
     image: default-bionic
-    project_root: build
 
     nodes:
         my-tests:
+            project_root: build
             environment:
                 php:
                     version: 8.3.3
