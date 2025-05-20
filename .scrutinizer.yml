@@ -16,7 +16,7 @@ build:
                 before:
                     - curl -sS https://getcomposer.org/installer | php && mv composer.phar composer
                 override:
-                    - cd report && ../composer install --no-scripts
+                    - ./composer install --no-scripts
         analysis:
             tests:
                 override:
@@ -24,7 +24,7 @@ build:
 
     tests:
         override:
-            - command: "cd report && ../composer phpunit"
+            - command: "./composer phpunit"
               coverage:
-                  file: "report/docs/coverage.clover"
+                  file: "docs/coverage.clover"
                   format: "php-clover"
