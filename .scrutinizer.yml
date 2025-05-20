@@ -6,8 +6,6 @@ filter:
 
 build:
     image: default-bionic
-    root_path: build
-
 
     nodes:
         my-tests:
