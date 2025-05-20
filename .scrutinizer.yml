@@ -18,6 +18,9 @@ build:
             dependencies:
                 before:
                     - curl -sS https://getcomposer.org/installer | php && mv composer.phar composer
+                commands:
+                    - ./composer update --no-plugins --no-scripts
+
         analysis:
             tests:
                 override:
@@ -25,7 +28,7 @@ build:
                     #- phpcs-run # Not used, missing config file
     tests:
         override:
-              - command: "./composer update --no-plugins --no-scripts && ./composer phpunit"
+                - command: "./composer phpunit"
                 # command: "XDEBUG_MODE=coverage vendor/bin/phpunit"
                 coverage:
                     file: "docs/coverage.clover"
