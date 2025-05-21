@@ -38,3 +38,25 @@ Besök http://localhost:8000/
 - /card/deck/shuffle – Blandar kortleken  
 - /card/deck/draw – Drar ett kort  
 - /card/deck/draw/:number – Drar valfritt antal kort  
+
+# Kodkvalitet med PhpMetrics och Scrutinizer
+
+[![Build Status](https://scrutinizer-ci.com/g/Valle85/mvc-me/badges/build.png?b=main)](https://scrutinizer-ci.com/g/Valle85/mvc-me/)
+[![Code Coverage](https://scrutinizer-ci.com/g/Valle85/mvc-me/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/Valle85/mvc-me/)
+[![Quality Score](https://scrutinizer-ci.com/g/Valle85/mvc-me/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/Valle85/mvc-me/)
+
+Projektet innehåller en analys av kodkvalitet med hjälp av PhpMetrics och Scrutinizer. Fullständig rapport och analys finns på sidan /metrics.
+
+## Verktyg 
+
+- Scrutinizer
+- PhpMetrics
+- PHP
+- Symfony
+
+## Kommandon 
+
+- composer phpunit
+- composer phpmetrics
+- composer lint
+- composer phpdoc 

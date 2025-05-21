@@ -1,87 +1,152 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Kodkvalitet – Metrics{% endblock %}
+{% block title %}Kodkvalitet - Metrics{% endblock %}
 
 {% block main %}
-    <h1>Metrics – Analys av kodkvalitet</h1>
+    <h1>Kodkvalitet – Metrics</h1>
 
-    <section>
-        <h2>Introduktion</h2>
-        <p>När vi pratar om kodkvalitet kan vi utgå från sex viktiga mätvärden – kallade de sex C:na. De hjälper oss förstå hur vi kan skriva tydligare, mer underhållbar och testbar kod:</p>
-        <ul>
-            <li><strong>Codestyle:</strong> Följer enhetliga regler för hur koden skrivs – t.ex. indrag och namngivning.</li>
-            <li><strong>Coverage:</strong> Hur mycket av koden som täcks av tester.</li>
-            <li><strong>Complexity:</strong> Hur komplex programlogiken är. Låg komplexitet är lättare att förstå och testa.</li>
-            <li><strong>Cohesion:</strong> Hur väl metoderna i en klass hänger ihop. Hög cohesion = tydligt ansvar.</li>
-            <li><strong>Coupling:</strong> Beroenden mellan klasser. Lägre är bättre för flexibilitet.</li>
-            <li><strong>CRAP:</strong> Identifierar komplex och otillräckligt testad kod (”skräpmetoder”).</li>
-        </ul>
-    </section>
+    <h2>Introduktion – 6 steg till snyggare och bättre kod, <em>“clean code”</em></h2>
+    <p>När vi pratar om kodkvalitet kan vi utgå från sex viktiga mätvärden – kallade de sex C:na. De hjälper oss förstå hur vi kan skriva tydligare, mer underhållbar och testbar kod:</p>
 
-    <section>
-        <h2>PhpMetrics</h2>
-        <p>Jag har använt PhpMetrics för att analysera min kod och hittade flera intressanta mätvärden och svagheter som visar att det finns förbättringspotential. Här är tre tydliga exempel:</p>
+    <ul>
+        <li><strong>Codestyle</strong><br>
+        Handlar om att följa enhetliga regler för hur koden skrivs – till exempel indrag, namngivning och struktur. En konsekvent kodstil gör det enklare att läsa, förstå och samarbeta kring koden.</li>
 
-        <h3>ProductController – “God object”</h3>
-        <p>Klassen gör för mycket. Den har 9 publika metoder, låg cohesion (LCOM = 4) och många beroenden.</p>
-        <p><strong>LCOM:</strong> 4, <strong>System complexity:</strong> 324.56</p>
+        <li><strong>Coverage</strong><br>
+        Hur mycket av koden som täcks av tester. Ett högt värde innebär att större delar av applikationen testas automatiskt, vilket minskar risken för buggar.</li>
 
-        <h3>DiceGameController – Hög komplexitet</h3>
-        <p>Innehåller en metod med cyklomatisk komplexitet 9, vilket innebär många möjliga exekveringsvägar.</p>
-        <p><strong>WMC:</strong> 17, <strong>Max komplexitet:</strong> 9</p>
+        <li><strong>Complexity</strong><br>
+        Ett mått på hur komplex programlogiken är. Kod med många alternativa flöden (t.ex. många if-satser) har hög komplexitet och blir svårare att förstå och testa. Låga värden gör koden enklare att underhålla.</li>
 
-        <h3>GameController – Många metoder och komplexitet</h3>
-        <p>WMC = 19 och en metod med komplexitet 6. Hanterar för mycket logik på ett ställe.</p>
-        <p><strong>WMC:</strong> 19, <strong>Max komplexitet:</strong> 6, <strong>System complexity:</strong> 400.7</p>
+        <li><strong>Cohesion</strong><br>
+        Visar hur bra koden i en klass hänger ihop. Hög cohesion innebär att alla metoder i en klass jobbar med samma sak – vilket är bra. Ett idealiskt värde är 1, där varje klass har ett tydligt ansvar.</li>
 
-        <!-- Bild från PhpMetrics här -->
-        <!-- <img src="{{ asset('img/phpmetrics-graph.png') }}" alt="PhpMetrics" style="max-width: 100%;"> -->
-    </section>
+        <li><strong>Coupling</strong><br>
+        Mäts beroenden mellan klasser. Hög coupling betyder att en klass är starkt beroende av andra – vilket gör den instabil. Här vill vi helst ha värdet 0, för att göra koden mer oberoende och lättare att ändra.</li>
 
-    <section>
-        <h2>Scrutinizer</h2>
-        <p>Scrutinizer analyserar både kodkvalitet och testtäckning. I mitt projekt fick jag följande:</p>
-        <ul>
-            <li><strong>Code Quality Score:</strong> 7.28</li>
-            <li><strong>Coverage:</strong> 16.3 %</li>
-            <li><strong>Build:</strong> Passerad</li>
-        </ul>
+        <li><strong>CRAP</strong><br>
+        Fokuserar på “skräpmetoder” – metoder som är komplexa och dåligt testade. De är ofta känsliga för förändringar. Mätvärdet hjälper oss identifiera kod som behöver förbättras eller brytas upp.</li>
+    </ul>
 
-        <p>Metoden <code>DiceGameController::testDiceHand()</code> sticker ut med ett CRAP-värde på 20. Det betyder att den är både komplex och dåligt testad.</p>
+    <h2>Phpmetrics</h2>
+    <p>Jag har använt Phpmetrics för att analysera min kod och hittade flera intressanta mätvärden och svagheter som visar att det finns förbättringspotential. Här är tre tydliga exempel:</p>
 
-        <!-- Bild på CRAP-värden här -->
-        <!-- <img src="{{ asset('img/scrutinizer-crap.png') }}" alt="Scrutinizer CRAP" style="max-width: 100%;"> -->
+    <h3>ProductController – “God object” (Blob)</h3>
+    <p>Denna klass gör för mycket. Den har 9 publika metoder, ett lågt cohesion-värde (LCOM = 4), och är beroende av många andra klasser. Det gör att koden blir svår att underhålla och bryter mot principen om ett ansvar per klass.</p>
+    <p><strong>LCOM:</strong> 4, <strong>Relativ systemkomplexitet:</strong> 324.56</p>
+    <p><strong>Koppling till 6C:</strong><br>
+    Cohesion – låg<br>
+    Coupling – hög<br>
+    Complexity – måttlig</p>
 
-        <p>Coverage-siffran påverkas av att viss kod inte är skriven av mig – men jag fokuserar på att förbättra testtäckning i egen kod.</p>
+    <h3>DiceGameController – Hög komplexitet</h3>
+    <p>Denna klass har en metod med cyklomatisk komplexitet 9, vilket innebär att metoden har många möjliga exekveringsvägar. Det ökar risken för buggar och gör det svårt att testa.</p>
+    <p><strong>WMC:</strong> 17, <strong>Max komplexitet:</strong> 9</p>
+    <p><strong>Koppling till 6C:</strong><br>
+    Complexity – hög<br>
+    CRAP – risk för känslig metod</p>
 
-        <p>
-            <a href="https://scrutinizer-ci.com/g/Valle85/mvc-me/">
-                <img src="https://scrutinizer-ci.com/g/Valle85/mvc-me/badges/build.png?b=main" alt="Build">
-            </a>
-            <a href="https://scrutinizer-ci.com/g/Valle85/mvc-me/">
-                <img src="https://scrutinizer-ci.com/g/Valle85/mvc-me/badges/coverage.png?b=main" alt="Coverage">
-            </a>
-            <a href="https://scrutinizer-ci.com/g/Valle85/mvc-me/">
-                <img src="https://scrutinizer-ci.com/g/Valle85/mvc-me/badges/quality-score.png?b=main" alt="Quality">
-            </a>
-        </p>
-    </section>
+    <h3>GameController – Många metoder och hög komplexitet</h3>
+    <p>Med ett WMC-värde på 19 och en metod med komplexitet 6 är denna klass ett exempel på en controller som hanterar för mycket logik. Det ökar beroenden och gör det svårare att isolera funktioner för testning.</p>
+    <p><strong>WMC:</strong> 19, <strong>Max komplexitet:</strong> 6, <strong>System complexity:</strong> 400.7</p>
+    <p><strong>Koppling till 6C:</strong><br>
+    Complexity – hög<br>
+    Coupling – troligen hög</p>
 
-    <section>
-        <h2>Förbättringar</h2>
-        <p>Jag valde att fokusera på tre förbättringsområden:</p>
-        <ul>
-            <li><strong>Refaktorera DiceGameController::testDiceHand()</strong> – minska komplexitet och dela upp logik.</li>
-            <li><strong>Öka testtäckning</strong> – skriva tester för egen affärslogik.</li>
-            <li><strong>Dela upp ProductController</strong> – minska beroenden och förbättra struktur.</li>
-        </ul>
-    </section>
+    <img src="{{ asset('img/metrics_before.png') }}" alt="Phpmetrics-rapport" style="max-width: 100%;">
+    <img src="{{ asset('img/metrics_before_2.png') }}" alt="Phpmetrics-rapport" style="max-width: 100%;">
 
-    <section>
-        <h2>Diskussion</h2>
-        <p>Att arbeta med kodkvalitet genom verktyg som PhpMetrics och Scrutinizer har hjälpt mig förstå var i min kod det finns brister. Jag har lärt mig att tolka mätvärden och använda dem för att prioritera förbättringar.</p>
-        <p>Även om vissa siffror påverkas av kod jag inte själv skrivit, kan jag ändå dra nytta av verktygens feedback på min egen del av koden. Det här arbetet har gett mig en tydligare bild av vad som menas med “clean code”.</p>
-    </section>
+    <h2>Scrutinizer</h2>
+    <p>Scrutinizer analyserar både kodkvalitet och testtäckning. I mitt projekt fick jag följande betyg:</p>
+
+    <p>
+    <a href="https://scrutinizer-ci.com/g/Valle85/mvc-me/">
+        <img src="https://scrutinizer-ci.com/g/Valle85/mvc-me/badges/quality-score.png?b=main" alt="Scrutinizer Code Quality">
+    </a>
+    <a href="https://scrutinizer-ci.com/g/Valle85/mvc-me/">
+        <img src="https://scrutinizer-ci.com/g/Valle85/mvc-me/badges/coverage.png?b=main" alt="Code Coverage">
+    </a>
+    <a href="https://scrutinizer-ci.com/g/Valle85/mvc-me/">
+        <img src="https://scrutinizer-ci.com/g/Valle85/mvc-me/badges/build.png?b=main" alt="Build Status">
+    </a>
+    </p>
+
+    <ul>
+        <li><strong>Code Quality Score:</strong> 7.28 – ett godkänt resultat, men med utrymme för förbättring.</li>
+        <li><strong>Coverage:</strong> 16.3 % – en låg testtäckning, vilket tyder på att stora delar av applikationen inte testas automatiskt.</li>
+        <li><strong>Build:</strong> passerad</li>
+        <li><strong>Code Intelligence:</strong> tillgängligt</li>
+    </ul>
+
+    <h3>Hot Spots</h3>
+    <p>Scrutinizer visar att den värst rankade metoden är DiceGameController::testDiceHand() med ett CRAP-värde på 20. Det innebär att metoden är både komplex och dåligt testad, vilket gör den extra känslig för förändringar.
+    Flera andra metoder har CRAP-värden mellan 6–12, men testDiceHand sticker ut som ett förbättringsförslag.</p>
+
+    <h3>Coverage</h3>
+    <p>Scrutinizer visar också att endast 115 av 705 rader kod täcks av tester, vilket ger en kodtäckning på 16.3 %. Det visar tydligt att jag behöver skriva fler enhetstester för att minska risken för buggar.</p>
+
+    <img src="{{ asset('img/scruti_before.png') }}" alt="Phpmetrics-rapport" style="max-width: 100%;">
+    <img src="{{ asset('img/scruti_before_2.png') }}" alt="Phpmetrics-rapport" style="max-width: 100%;">
+    <img src="{{ asset('img/scruti_before_3.png') }}" alt="Phpmetrics-rapport" style="max-width: 100%;">
+
+    <h2>Förbättringar</h2>
+    <p>Utifrån analyserna från PhpMetrics och Scrutinizer har jag identifierat tre förbättringsområden i min kodbas:</p>
+
+    <h3>Refaktorisera DiceGameController::testDiceHand()</h3>
+    <p>Denna metod har ett CRAP-värde på 20, vilket gör den till ett tydligt förbättringsförslag. Den är både komplex och dåligt testad. Jag planerar att:</p>
+    <ul>
+        <li>Dela upp logiken i mindre metoder.</li>
+        <li>Göra testerna tydligare och mer fokuserade.</li>
+        <li>Använda enklare kontrollflöden.</li>
+    </ul>
+    <p><strong>Förväntad effekt:</strong> Lägre komplexitet, lägre CRAP och lättare att underhålla.</p>
+
+    <h3>Öka testtäckningen i egen kod</h3>
+    <p>Scrutinizer visar en total täckning på 16.3 %, men mycket av den kod som inte täcks är från externa bibliotek eller kod jag inte själv har skrivit. Jag fokuserar därför på att:</p>
+    <ul>
+        <li>Täcka egna controllers och modeller med fler PHPUnit-tester.</li>
+        <li>Säkerställa att viktiga affärslogik-funktioner testas.</li>
+    </ul>
+    <p><strong>Förväntad effekt:</strong> Bättre tillförlitlighet och något ökad täckning i relevanta delar.</p>
+
+    <h3>Minska ansvar och beroenden i ProductController</h3>
+    <p>Denna klass uppvisar flera problem: låg cohesion (LCOM=4), hög relativ komplexitet och troligtvis hög coupling. Jag planerar att:</p>
+    <ul>
+        <li>Flytta delar av logiken till tjänsteklasser (Services).</li>
+        <li>Göra klassen mer fokuserad på ett enda ansvar.</li>
+    </ul>
+    <p><strong>Förväntad effekt:</strong> Lägre coupling och ökad modularitet.</p>
+
+    <h2>Resultat av förbättringarna</h2>
+    <p>Efter att ha genomfört förbättringarna och kört om analyserna i både PhpMetrics och Scrutinizer kan vi tydligt se positiva effekter:</p>
+    <ul>
+        <li>PhpMetrics visar att den cyklomatiska komplexiteten minskat (från 3.20 till 3.04) och antalet klasser ökat, vilket tyder på en mer modulär struktur. Även "average bugs by class" har sjunkit till 0.11.</li>
+        <li>Scrutinizer visar att code coverage ökat från 16 % till 20 % och kvalitetsbetyget har stigit från 7.28 till 7.29.</li>
+        <li>Metoden DiceGameController::testRollDice() har nu ett lågt CRAP-värde (2) och rapporteras som välstrukturerad, vilket tyder på lyckad refaktorering.</li>
+        <li>Nya klasser som DiceHandFactory och tillhörande tester bidrar till både struktur och testtäckning.</li>
+    </ul>
+
+    <img src="{{ asset('img/metrics_after.png') }}" alt="Phpmetrics-rapport" style="max-width: 100%;">
+    <img src="{{ asset('img/scruti_after.png') }}" alt="Phpmetrics-rapport" style="max-width: 100%;">
+    <img src="{{ asset('img/scruti_after_2.png') }}" alt="Phpmetrics-rapport" style="max-width: 100%;">
+    <img src="{{ asset('img/scruti_after_3.png') }}" alt="Phpmetrics-rapport" style="max-width: 100%;">
+
+    <h2>Diskussion</h2>
+    <p>Att arbeta aktivt med kodkvalitet genom verktyg som PhpMetrics och Scrutinizer har varit både lärorikt och utmanande. Genom att tolka mätvärden kopplade till 6C (t.ex. komplexitet, cohesion och testtäckning) blev det tydligt var min kod hade brister och förbättringspotential.</p>
+    <p>Jag märkte att vissa delar av min applikation var svåra att testa – särskilt controllers med mycket logik. Genom att bryta ut funktioner och skriva mer fokuserade enheter blev koden inte bara lättare att förstå utan även enklare att testa.</p>
+
+    <p>En utmaning har varit att täckningsgraden (coverage) påverkades av kod som jag inte själv har skrivit. Det förklarar varför det totala värdet är lågt, trots att jag har skrivit relevanta tester för egen kod.
+    Det finns tydliga fördelar med att jobba med “clean code”:</p>
+
+    <ul>
+        <li>Det blir lättare att läsa, förstå och underhålla koden.</li>
+        <li>Buggar minskar tack vare bättre tester.</li>
+        <li>Refaktorering känns tryggare eftersom mätvärden ger feedback direkt.</li>
+    </ul>
+
+    <p>En möjlig nackdel är att man lätt fastnar i detaljer och optimerar “för mätningarnas skull” snarare än för användbarhet. Det gäller att hitta en balans.</p>
+
+    <p><strong>Sammanfattningsvis:</strong> Verktygen har hjälpt mig att få konkret feedback och bli mer medveten om hur jag skriver kod. Det är definitivt något jag kommer att ta med mig i framtida projekt.</p>
+
 {% endblock %}
-
 

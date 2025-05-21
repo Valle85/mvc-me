@@ -461,6 +461,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-LuckyControllerTwig.html#method_report"
         },                {
+            "fqsen": "\\App\\Controller\\MetricsController",
+            "name": "MetricsController",
+            "summary": "",
+            "url": "classes/App-Controller-MetricsController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\MetricsController\u003A\u003Ametrics\u0028\u0029",
+            "name": "metrics",
+            "summary": "",
+            "url": "classes/App-Controller-MetricsController.html#method_metrics"
+        },                {
             "fqsen": "\\App\\Controller\\ProductController",
             "name": "ProductController",
             "summary": "",
@@ -590,6 +600,16 @@ Search.appendIndex(
             "name": "hand",
             "summary": "",
             "url": "classes/App-Dice-DiceHand.html#property_hand"
+        },                {
+            "fqsen": "\\App\\Dice\\DiceHandFactory",
+            "name": "DiceHandFactory",
+            "summary": "",
+            "url": "classes/App-Dice-DiceHandFactory.html"
+        },                {
+            "fqsen": "\\App\\Dice\\DiceHandFactory\u003A\u003AcreateHand\u0028\u0029",
+            "name": "createHand",
+            "summary": "",
+            "url": "classes/App-Dice-DiceHandFactory.html#method_createHand"
         },                {
             "fqsen": "\\App\\Entity\\Book",
             "name": "Book",
