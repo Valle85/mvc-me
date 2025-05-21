@@ -114,7 +114,6 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 6,
         "instability": 1,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -226,7 +225,6 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 4,
         "instability": 1,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -366,7 +364,6 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 5,
         "instability": 1,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -450,7 +447,6 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 3,
         "instability": 1,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -529,9 +525,9 @@ var classes = [
         "nbMethodsPublic": 9,
         "nbMethodsGetter": 0,
         "nbMethodsSetters": 0,
-        "wmc": 17,
-        "ccn": 9,
-        "ccnMethodMax": 4,
+        "wmc": 14,
+        "ccn": 6,
+        "ccnMethodMax": 3,
         "externals": [
             "Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
             "Symfony\\Component\\HttpFoundation\\Response",
@@ -541,10 +537,7 @@ var classes = [
             "Exception",
             "App\\Dice\\DiceGraphic",
             "Symfony\\Component\\HttpFoundation\\Response",
-            "Exception",
-            "App\\Dice\\DiceHand",
-            "App\\Dice\\DiceGraphic",
-            "App\\Dice\\Dice",
+            "App\\Dice\\DiceHandFactory",
             "Symfony\\Component\\HttpFoundation\\Response",
             "Symfony\\Component\\HttpFoundation\\Response",
             "Symfony\\Component\\HttpFoundation\\Request",
@@ -563,38 +556,37 @@ var classes = [
         ],
         "implements": [],
         "lcom": 2,
-        "length": 228,
-        "vocabulary": 71,
-        "volume": 1402.14,
-        "difficulty": 14.59,
-        "effort": 20457.49,
-        "level": 0.07,
-        "bugs": 0.47,
-        "time": 1137,
-        "intelligentContent": 96.1,
-        "number_operators": 50,
-        "number_operands": 178,
-        "number_operators_unique": 10,
+        "length": 210,
+        "vocabulary": 70,
+        "volume": 1287.15,
+        "difficulty": 12.32,
+        "effort": 15857.26,
+        "level": 0.08,
+        "bugs": 0.43,
+        "time": 881,
+        "intelligentContent": 104.48,
+        "number_operators": 43,
+        "number_operands": 167,
+        "number_operators_unique": 9,
         "number_operands_unique": 61,
         "cloc": 10,
-        "loc": 107,
-        "lloc": 97,
-        "mi": 56.22,
-        "mIwoC": 33.42,
-        "commentWeight": 22.8,
-        "kanDefect": 0.66,
-        "relativeStructuralComplexity": 121,
-        "relativeDataComplexity": 0.81,
-        "relativeSystemComplexity": 121.81,
-        "totalStructuralComplexity": 1089,
-        "totalDataComplexity": 7.33,
-        "totalSystemComplexity": 1096.33,
+        "loc": 97,
+        "lloc": 87,
+        "mi": 58.97,
+        "mIwoC": 35.11,
+        "commentWeight": 23.86,
+        "kanDefect": 0.52,
+        "relativeStructuralComplexity": 144,
+        "relativeDataComplexity": 0.75,
+        "relativeSystemComplexity": 144.75,
+        "totalStructuralComplexity": 1296,
+        "totalDataComplexity": 6.77,
+        "totalSystemComplexity": 1302.77,
         "package": "App\\Controller\\",
         "pageRank": 0.01,
         "afferentCoupling": 0,
-        "efferentCoupling": 8,
+        "efferentCoupling": 9,
         "instability": 1,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -778,7 +770,6 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 5,
         "instability": 1,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -862,7 +853,71 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 4,
         "instability": 1,
-        "numberOfUnitTests": 0,
+        "violations": {}
+    },
+    {
+        "name": "App\\Controller\\MetricsController",
+        "interface": false,
+        "abstract": false,
+        "final": true,
+        "methods": [
+            {
+                "name": "metrics",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 1,
+        "nbMethods": 1,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 1,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "wmc": 1,
+        "ccn": 1,
+        "ccnMethodMax": 1,
+        "externals": [
+            "Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "Symfony\\Component\\HttpFoundation\\Response"
+        ],
+        "parents": [
+            "Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController"
+        ],
+        "implements": [],
+        "lcom": 1,
+        "length": 5,
+        "vocabulary": 5,
+        "volume": 11.61,
+        "difficulty": 0.5,
+        "effort": 5.8,
+        "level": 2,
+        "bugs": 0,
+        "time": 0,
+        "intelligentContent": 23.22,
+        "number_operators": 1,
+        "number_operands": 4,
+        "number_operators_unique": 1,
+        "number_operands_unique": 4,
+        "cloc": 1,
+        "loc": 9,
+        "lloc": 8,
+        "mi": 97.4,
+        "mIwoC": 72.71,
+        "commentWeight": 24.69,
+        "kanDefect": 0.15,
+        "relativeStructuralComplexity": 1,
+        "relativeDataComplexity": 0.5,
+        "relativeSystemComplexity": 1.5,
+        "totalStructuralComplexity": 1,
+        "totalDataComplexity": 0.5,
+        "totalSystemComplexity": 1.5,
+        "package": "App\\Controller\\",
+        "pageRank": 0.01,
+        "afferentCoupling": 0,
+        "efferentCoupling": 2,
+        "instability": 1,
         "violations": {}
     },
     {
@@ -1001,7 +1056,6 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 4,
         "instability": 1,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1080,7 +1134,6 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 3,
         "instability": 1,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1170,7 +1223,6 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 2,
         "instability": 1,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1239,10 +1291,9 @@ var classes = [
         "totalSystemComplexity": 3,
         "package": "App\\Dice\\",
         "pageRank": 0.02,
-        "afferentCoupling": 1,
+        "afferentCoupling": 2,
         "efferentCoupling": 1,
-        "instability": 0.5,
-        "numberOfUnitTests": 0,
+        "instability": 0.33,
         "violations": {}
     },
     {
@@ -1329,11 +1380,76 @@ var classes = [
         "totalDataComplexity": 4,
         "totalSystemComplexity": 49,
         "package": "App\\Dice\\",
-        "pageRank": 0.02,
-        "afferentCoupling": 1,
+        "pageRank": 0.03,
+        "afferentCoupling": 2,
         "efferentCoupling": 1,
-        "instability": 0.5,
-        "numberOfUnitTests": 0,
+        "instability": 0.33,
+        "violations": {}
+    },
+    {
+        "name": "App\\Dice\\DiceHandFactory",
+        "interface": false,
+        "abstract": false,
+        "final": false,
+        "methods": [
+            {
+                "name": "createHand",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 1,
+        "nbMethods": 1,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 1,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "wmc": 4,
+        "ccn": 4,
+        "ccnMethodMax": 4,
+        "externals": [
+            "App\\Dice\\DiceHand",
+            "InvalidArgumentException",
+            "App\\Dice\\DiceHand",
+            "App\\Dice\\DiceGraphic",
+            "App\\Dice\\Dice"
+        ],
+        "parents": [],
+        "implements": [],
+        "lcom": 1,
+        "length": 27,
+        "vocabulary": 15,
+        "volume": 105.49,
+        "difficulty": 9.71,
+        "effort": 1024.72,
+        "level": 0.1,
+        "bugs": 0.04,
+        "time": 57,
+        "intelligentContent": 10.86,
+        "number_operators": 10,
+        "number_operands": 17,
+        "number_operators_unique": 8,
+        "number_operands_unique": 7,
+        "cloc": 0,
+        "loc": 20,
+        "lloc": 20,
+        "mi": 56.91,
+        "mIwoC": 56.91,
+        "commentWeight": 0,
+        "kanDefect": 0.29,
+        "relativeStructuralComplexity": 4,
+        "relativeDataComplexity": 0.67,
+        "relativeSystemComplexity": 4.67,
+        "totalStructuralComplexity": 4,
+        "totalDataComplexity": 0.67,
+        "totalSystemComplexity": 4.67,
+        "package": "App\\Dice\\",
+        "pageRank": 0.01,
+        "afferentCoupling": 1,
+        "efferentCoupling": 4,
+        "instability": 0.8,
         "violations": {}
     },
     {
@@ -1404,11 +1520,10 @@ var classes = [
         "totalDataComplexity": 6,
         "totalSystemComplexity": 6,
         "package": "App\\Dice\\",
-        "pageRank": 0.08,
-        "afferentCoupling": 3,
+        "pageRank": 0.11,
+        "afferentCoupling": 4,
         "efferentCoupling": 0,
         "instability": 0,
-        "numberOfUnitTests": 1,
         "violations": {}
     },
     {
@@ -1488,7 +1603,6 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 2,
         "instability": 0.67,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1554,7 +1668,6 @@ var classes = [
         "afferentCoupling": 3,
         "efferentCoupling": 2,
         "instability": 0.4,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1643,7 +1756,6 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 2,
         "instability": 0.67,
-        "numberOfUnitTests": 2,
         "violations": {}
     },
     {
@@ -1723,11 +1835,10 @@ var classes = [
         "totalDataComplexity": 3,
         "totalSystemComplexity": 19,
         "package": "App\\Game\\",
-        "pageRank": 0.03,
+        "pageRank": 0.02,
         "afferentCoupling": 1,
         "efferentCoupling": 2,
         "instability": 0.67,
-        "numberOfUnitTests": 1,
         "violations": {}
     },
     {
@@ -1830,7 +1941,6 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 3,
         "instability": 0.75,
-        "numberOfUnitTests": 3,
         "violations": {}
     },
     {
@@ -1914,7 +2024,6 @@ var classes = [
         "afferentCoupling": 2,
         "efferentCoupling": 1,
         "instability": 0.33,
-        "numberOfUnitTests": 1,
         "violations": {}
     },
     {
@@ -2010,7 +2119,6 @@ var classes = [
         "afferentCoupling": 4,
         "efferentCoupling": 1,
         "instability": 0.2,
-        "numberOfUnitTests": 2,
         "violations": {}
     },
     {
@@ -2091,11 +2199,10 @@ var classes = [
         "totalDataComplexity": 22,
         "totalSystemComplexity": 22,
         "package": "App\\Card\\",
-        "pageRank": 0.38,
+        "pageRank": 0.35,
         "afferentCoupling": 4,
         "efferentCoupling": 0,
         "instability": 0,
-        "numberOfUnitTests": 19,
         "violations": {}
     },
     {
@@ -2167,7 +2274,6 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 1,
         "instability": 0.5,
-        "numberOfUnitTests": 1,
         "violations": {}
     },
     {
@@ -2242,11 +2348,10 @@ var classes = [
         "totalDataComplexity": 27,
         "totalSystemComplexity": 27,
         "package": "App\\Entity\\",
-        "pageRank": 0.02,
+        "pageRank": 0.01,
         "afferentCoupling": 1,
         "efferentCoupling": 0,
         "instability": 0,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -2345,7 +2450,6 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 0,
         "instability": 0,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -2402,7 +2506,6 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 1,
         "instability": 1,
-        "numberOfUnitTests": 0,
         "violations": {}
     }
 ]

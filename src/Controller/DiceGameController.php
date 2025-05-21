@@ -58,20 +58,8 @@ class DiceGameController extends AbstractController
     #[Route("/game/pig/test/dicehand/{num<\d+>}", name: "test_dicehand")]
     public function testDiceHand(int $num): Response
     {
-        if ($num > 99) {
-            throw new \Exception("Can not roll more than 99 dices!");
-        }
-
-        $hand = new DiceHand();
-        for ($i = 1; $i <= $num; $i++) {
-            if ($i % 2 === 1) {
-                $hand->add(new DiceGraphic());
-            } else {
-                $hand->add(new Dice());
-            }
-        }
-
-        $hand->roll();
+        $factory = new \App\Dice\DiceHandFactory();
+        $hand = $factory->createHand($num);
 
         $data = [
             "num_dices" => $hand->getNumberDices(),
