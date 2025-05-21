@@ -16,7 +16,7 @@ Detta är min me-sida för kursen *Objektorienterade webbteknologier (mvc)* på 
 
 ### Klona repot
 
-```bash
+<!-- ```bash -->
 git clone https://github.com/Valle85/mvc-me.git
 cd mvc-me
 composer install
