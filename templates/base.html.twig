@@ -13,11 +13,12 @@
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
-    <body>
+    <body class="{% block body_class %}{% endblock %}">
 
-        <header class="site-header" style="background-image: url({{ asset('img/background.jpg') }})">
-            <span class="site-title">My Symfony Site</span>
-        </header>
+    <header class="site-header" style="{% block header_style %}background-image: url({{ asset('img/background.jpg') }}){% endblock %}">
+        <span class="site-title">{% block site_title %}My Symfony Site{% endblock %}</span>
+    </header>
+        {% block navbar %}
         <nav class="navbar">
             <ul>
                 <li><a href="{{ path('home') }}">Home</a></li>
@@ -31,6 +32,7 @@
                 <li><a href="{{ path('metrics') }}">Metrics</a></li>
             </ul>
         </nav>
+        {% endblock %}
         <main>
         {% for label, messages in app.flashes %}
             {% for message in messages %}

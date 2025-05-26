@@ -1,0 +1,12 @@
+{% extends "proj/base.html.twig" %}
+
+{% block title %}Femkortspoker{% endblock %}
+{% block main %}
+    <h1>Femkortspoker</h1>
+
+    <p>Välkommen till projektet för kursen. Här kan du spela traditionell femkortspoker mot datorn.</p>
+    <div class="start-buttons">
+        <a class="game-link" href="{{ path('proj_about') }}">Om spelet</a>
+        <a class="game-link" href="{{ path('poker_bet') }}">Starta spel</a>
+    </div>
+{% endblock %}

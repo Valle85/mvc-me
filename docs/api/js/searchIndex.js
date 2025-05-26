@@ -471,6 +471,31 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-MetricsController.html#method_metrics"
         },                {
+            "fqsen": "\\App\\Controller\\PokerGameController",
+            "name": "PokerGameController",
+            "summary": "",
+            "url": "classes/App-Controller-PokerGameController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\PokerGameController\u003A\u003Aplay\u0028\u0029",
+            "name": "play",
+            "summary": "",
+            "url": "classes/App-Controller-PokerGameController.html#method_play"
+        },                {
+            "fqsen": "\\App\\Controller\\PokerGameController\u003A\u003Aexchange\u0028\u0029",
+            "name": "exchange",
+            "summary": "",
+            "url": "classes/App-Controller-PokerGameController.html#method_exchange"
+        },                {
+            "fqsen": "\\App\\Controller\\PokerGameController\u003A\u003Abet\u0028\u0029",
+            "name": "bet",
+            "summary": "",
+            "url": "classes/App-Controller-PokerGameController.html#method_bet"
+        },                {
+            "fqsen": "\\App\\Controller\\PokerGameController\u003A\u003Areset\u0028\u0029",
+            "name": "reset",
+            "summary": "",
+            "url": "classes/App-Controller-PokerGameController.html#method_reset"
+        },                {
             "fqsen": "\\App\\Controller\\ProductController",
             "name": "ProductController",
             "summary": "",
@@ -520,6 +545,21 @@ Search.appendIndex(
             "name": "showProductByMinimumValue",
             "summary": "",
             "url": "classes/App-Controller-ProductController.html#method_showProductByMinimumValue"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController",
+            "name": "ProjController",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Ahome\u0028\u0029",
+            "name": "home",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_home"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Aabout\u0028\u0029",
+            "name": "about",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_about"
         },                {
             "fqsen": "\\App\\Dice\\Dice",
             "name": "Dice",
@@ -861,6 +901,26 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Kernel.html"
         },                {
+            "fqsen": "\\App\\Poker\\PokerHandEvaluator",
+            "name": "PokerHandEvaluator",
+            "summary": "",
+            "url": "classes/App-Poker-PokerHandEvaluator.html"
+        },                {
+            "fqsen": "\\App\\Poker\\PokerHandEvaluator\u003A\u003Aevaluate\u0028\u0029",
+            "name": "evaluate",
+            "summary": "",
+            "url": "classes/App-Poker-PokerHandEvaluator.html#method_evaluate"
+        },                {
+            "fqsen": "\\App\\Poker\\PokerHandEvaluator\u003A\u003Acompare\u0028\u0029",
+            "name": "compare",
+            "summary": "",
+            "url": "classes/App-Poker-PokerHandEvaluator.html#method_compare"
+        },                {
+            "fqsen": "\\App\\Poker\\PokerHandEvaluator\u003A\u003A\u0024ranking",
+            "name": "ranking",
+            "summary": "",
+            "url": "classes/App-Poker-PokerHandEvaluator.html#property_ranking"
+        },                {
             "fqsen": "\\App\\Repository\\BookRepository",
             "name": "BookRepository",
             "summary": "",
@@ -925,6 +985,11 @@ Search.appendIndex(
             "name": "App",
             "summary": "",
             "url": "namespaces/app.html"
+        },                {
+            "fqsen": "\\App\\Poker",
+            "name": "Poker",
+            "summary": "",
+            "url": "namespaces/app-poker.html"
         },                {
             "fqsen": "\\App\\Repository",
             "name": "Repository",

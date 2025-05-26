@@ -1,0 +1,49 @@
+{% extends "proj/base.html.twig" %}
+
+{% block title %}Spela{% endblock %}
+
+{% block main %}
+<h1>Femkortspoker</h1>
+
+<p>Saldo: {{ money }} kr</p>
+
+<h2>Din hand:</h2>
+<form method="post" action="{{ path('poker_exchange') }}">
+    <div class="cards">
+        {% for card in player %}
+            <label>
+                <input type="checkbox" name="exchange[]" value="{{ loop.index0 }}">
+                <span class="card">{{ card.getAsString()|raw }}</span>
+            </label>
+        {% endfor %}
+    </div>
+
+    {% if canExchange %}
+    <div class="game-buttons">
+        <button type="submit">Byt markerade kort</button>
+    </div>
+    {% endif %}
+</form>
+
+{% if playerResult and computerResult and winner %}
+    <h2>Resultat</h2>
+
+    <h3>Din hand: {{ playerResult }}</h3>
+
+    <h2>Datorns hand:</h2>
+    <div class="cards">
+        {% for card in computer %}
+            <span class="card">{{ card.getAsString()|raw }}</span>
+        {% endfor %}
+    </div>
+
+    <h3>Datorns hand: {{ computerResult }}</h3>
+    <h2>{{ winner }}</h2>
+
+    <form method="post" action="{{ path('poker_reset') }}">
+        <div class="game-buttons">
+            <button>Spela igen</button>
+        </div>
+    </form>
+{% endif %}
+{% endblock %}

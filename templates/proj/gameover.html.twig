@@ -1,0 +1,12 @@
+{% extends "proj/base.html.twig" %}
+
+{% block title %}Spelet är över{% endblock %}
+
+{% block main %}
+    <h1>Game Over</h1>
+    <p>Du har slut på pengar! Spelet är över.</p>
+
+    <form method="post" action="{{ path('poker_reset') }}">
+        <button>Starta om spelet</button>
+    </form>
+{% endblock %}

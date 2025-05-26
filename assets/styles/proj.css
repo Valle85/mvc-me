@@ -1,0 +1,190 @@
+.proj {
+    color: #eee;
+}
+
+.proj body {
+    background: url('../images/table.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: "Georgia", serif;
+    margin: 0;
+    padding: 0;
+    color: #f5f5f5;
+}
+
+.proj header {
+    height: 120px;
+    background-color: #222;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 3px solid #444;
+    box-shadow: 0 0 10px black;
+}
+
+.proj .site-header {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.proj .navbar {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #555;
+}
+
+.proj .navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.proj .navbar li {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+.proj .navbar a {
+    text-decoration: none;
+    color: #0F5C33;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: 0.2s;
+}
+
+.proj .navbar a:hover {
+    color: #ffffff;
+}
+
+.proj main {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem auto;
+    max-width: 800px;
+    box-shadow: 0 0 20px black;
+}
+
+.proj .site-footer {
+    background-color: #111;
+    color: #aaa;
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    border-top: 1px solid #444;
+}
+
+.proj .card {
+    display: inline-block;
+    font-size: 1.8em;
+    width: 60px;
+    height: 90px;
+    margin: 0.4em;
+    padding: 0.5em;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    font-family: "Courier New", monospace;
+    position: relative;
+    transition: transform 0.2s;
+}
+
+.proj .card:hover {
+    transform: scale(1.05);
+}
+
+.proj .game-buttons button {
+    font-size: 1em;
+    padding: 0.7em 1.2em;
+    border: none;
+    border-radius: 8px;
+    background-color: #0F5C33;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.proj .game-buttons button:hover {
+    background-color: #1f8a4c;
+    transform: scale(1.05);
+}
+
+.proj input[type="checkbox"] {
+    display: none;
+}
+
+.proj input[type="checkbox"] + .card {
+    border: 2px solid white;
+    opacity: 0.7;
+}
+
+.proj input[type="checkbox"]:checked + .card {
+    border: 3px solid limegreen;
+    opacity: 1;
+}
+
+.proj .start-buttons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.proj a.game-link {
+    padding: 0.7em 1.5em;
+    background-color: #111;
+    color: #0F5C33;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.5);
+    border: 2px solid #0F5C33;
+    transition: 0.2s ease;
+}
+
+.proj a.game-link:hover {
+    background-color: #0F5C33;
+    color: #fff;
+}
+
+.proj .bet-form {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.proj .bet-form input {
+    width: 100px;
+    padding: 0.4em;
+    font-size: 1em;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.proj .bet-form button {
+    padding: 0.5em 1.2em;
+    background-color: #b30000;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.proj .bet-form button:hover {
+    background-color: #e60000;
+    transform: scale(1.05);
+}

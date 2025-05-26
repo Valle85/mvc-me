@@ -1,26 +1,44 @@
-![me-sida](public/img/screenshot.png)
+![Projektbild](public/img/proj.png)
 
-# Min me-sida för MVC-kursen
+# Femkortspoker - Projekt i MVC-kursen
 
-Detta är min me-sida för kursen *Objektorienterade webbteknologier (mvc)* på Blekinge Tekniska Högskola. Sidan är byggd med PHP-ramverket Symfony och följer strukturen med controllers, templates (Twig), JSON API och enhetlig layout med navbar, header och footer.
+Detta är ett skolprojekt där man spelar traditionell femkortspoker mot datorn. Projektet är en del av kursen "Design och implementation av webbaserade applikationer med MVC".
 
-## Innehåll
+## Funktioner
 
-- Presentation av mig själv
-- Kursbeskrivning
-- Redovisningstexter för alla kmom
-- JSON API
-- Sammanställning av alla JSON-API:er
-- Enkel styling i `app.css`
+- Spelaren får 5 kort och kan byta upp till 3 gånger
+- En datorhand skapas automatiskt
+- Resultatet utvärderas efter sista bytet
+- Spelaren kan satsa pengar varje runda
+- Spelet avslutas när pengarna tar slut
 
+## Kom igång
 
-### Klona repot
-
-<!-- ```bash -->
 git clone https://github.com/Valle85/mvc-me.git
-cd mvc-me
+cd mvc/me/report
 composer install
-Besök http://localhost:8000/
+npm install
+npm run build
+symfony server:start
+
+
+## 📚 Dokumentation & Analys
+
+- [PHPDoc (lokalt)](phpdoc/index.html)  
+- [PhpMetrics (lokalt)](metrics/index.html)  
+- [Scrutinizer](https://scrutinizer-ci.com/g/Valle85/mvc-me/)
+
+[![Build Status](https://scrutinizer-ci.com/g/Valle85/mvc-me/badges/build.png?b=main)](https://scrutinizer-ci.com/g/Valle85/mvc-me/)  
+[![Code Coverage](https://scrutinizer-ci.com/g/Valle85/mvc-me/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/Valle85/mvc-me/)  
+[![Quality Score](https://scrutinizer-ci.com/g/Valle85/mvc-me/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/Valle85/mvc-me/)
+
+---
+
+## 🧭 Om me-sidan
+
+![me-sida](public/img/screenshot.png)
+Min me-sida finns på `/`, med presentation, kursbeskrivning och redovisningar för varje kmom. Sidan är byggd i Symfony med layout, navbar, footer och JSON API.
+
 
 ## Navigering
 

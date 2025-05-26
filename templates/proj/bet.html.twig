@@ -1,0 +1,14 @@
+{% extends "proj/base.html.twig" %}
+
+{% block title %}Satsa pengar{% endblock %}
+
+{% block main %}
+<h1>Sätt din insats</h1>
+<p>Du har: {{ money }} kr</p>
+
+<form method="post" class="bet-form">
+    <label for="amount">Satsa:</label>
+    <input type="number" id="amount" name="amount" min="1" required>
+    <button type="submit">Spela</button>
+</form>
+{% endblock %}

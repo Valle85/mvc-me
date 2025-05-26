@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block body_class %}proj{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('proj') }}
+{% endblock %}
+
+{% block header_style %}background-image: url({{ asset('img/casino.jpg') }}){% endblock %}
+{% block site_title %}Femkortspoker{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar">
+        <ul>
+            <li><a href="{{ path('proj_home') }}">Start</a></li>
+            <li><a href="{{ path('proj_about') }}">Om spelet</a></li>
+            {# fler länkar här sen #}
+        </ul>
+    </nav>
+{% endblock %}
