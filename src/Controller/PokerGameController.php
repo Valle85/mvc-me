@@ -65,6 +65,10 @@ class PokerGameController extends AbstractController
         $deck = $session->get("poker_deck");
         $playerHand = $session->get("player_hand");
 
+        if (!$deck || !$playerHand) {
+            return $this->redirectToRoute('poker_play');
+        }
+
         $exchangeIndexes = $request->request->all('exchange') ?? [];
 
         foreach ($exchangeIndexes as $index) {
@@ -99,6 +103,10 @@ class PokerGameController extends AbstractController
             $session->set("player_result", $playerResult);
             $session->set("computer_result", $computerResult);
             $session->set("poker_winner", $winner);
+
+            if ($money <= 0) {
+                return $this->render('proj/gameover.html.twig');
+            }
         }
 
         return $this->redirectToRoute('poker_play');
@@ -132,9 +140,9 @@ class PokerGameController extends AbstractController
     #[Route("/proj/reset", name: "poker_reset", methods: ["POST"])]
     public function reset(SessionInterface $session): Response
     {
-        $money = $session->get("poker_money", 1000);
+        // $money = $session->get("poker_money", 1000);
         $session->clear();
-        $session->set("poker_money", $money);
+        // $session->set("poker_money", $money);
 
         return $this->redirectToRoute('poker_bet');
     }

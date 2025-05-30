@@ -2,7 +2,7 @@
     color: #eee;
 }
 
-.proj body {
+body.proj {
     background: url('../images/table.jpg') no-repeat center center fixed;
     background-size: cover;
     font-family: "Georgia", serif;

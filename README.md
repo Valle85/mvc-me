@@ -2,7 +2,7 @@
 
 # Femkortspoker - Projekt i MVC-kursen
 
-Detta är ett skolprojekt där man spelar traditionell femkortspoker mot datorn. Projektet är en del av kursen "Design och implementation av webbaserade applikationer med MVC".
+Detta är ett skolprojekt där man spelar traditionell femkortspoker mot datorn. Projektet är en del av kursen "Objektorienterade webbreknologier".
 
 ## Funktioner
 
@@ -22,9 +22,9 @@ npm run build
 symfony server:start
 
 
-## 📚 Dokumentation & Analys
+## Dokumentation & Analys
 
-- [PHPDoc (lokalt)](phpdoc/index.html)  
+- [PHPDoc (lokalt)](docs/api/index.html)
 - [PhpMetrics (lokalt)](metrics/index.html)  
 - [Scrutinizer](https://scrutinizer-ci.com/g/Valle85/mvc-me/)
 
@@ -34,7 +34,7 @@ symfony server:start
 
 ---
 
-## 🧭 Om me-sidan
+## Om me-sidan
 
 ![me-sida](public/img/screenshot.png)
 Min me-sida finns på `/`, med presentation, kursbeskrivning och redovisningar för varje kmom. Sidan är byggd i Symfony med layout, navbar, footer och JSON API.
@@ -59,11 +59,22 @@ Min me-sida finns på `/`, med presentation, kursbeskrivning och redovisningar f
 
 # Kodkvalitet med PhpMetrics och Scrutinizer
 
+Projektet innehåller en analys av kodkvalitet med hjälp av PhpMetrics och Scrutinizer. Fullständig rapport och analys finns på sidan /metrics.
+
 [![Build Status](https://scrutinizer-ci.com/g/Valle85/mvc-me/badges/build.png?b=main)](https://scrutinizer-ci.com/g/Valle85/mvc-me/)
 [![Code Coverage](https://scrutinizer-ci.com/g/Valle85/mvc-me/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/Valle85/mvc-me/)
 [![Quality Score](https://scrutinizer-ci.com/g/Valle85/mvc-me/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/Valle85/mvc-me/)
 
-Projektet innehåller en analys av kodkvalitet med hjälp av PhpMetrics och Scrutinizer. Fullständig rapport och analys finns på sidan /metrics.
+Efter analys med PhpMetrics och Scrutinizer identifierades bland annat duplicerad kod och lågt Cohesion-värde i vissa klasser. Genom att bryta ut logik till mindre metoder och flytta kod till rätt plats förbättrades Quality Score från 7.2 till 8.4.
+
+# Före och efter analys 
+Jag genomförde förbättringar i kodtäckning baserat på analyser från PhpMetrics och Scrutinizer:
+
+- Lade till tester för PokerHandEvaluator 
+- Täckte klassen till 90% kodtäckning
+
+(public/img/before.png)
+(public/img/after.png)
 
 ## Verktyg 
 

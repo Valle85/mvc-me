@@ -25,7 +25,7 @@
     {% endif %}
 </form>
 
-{% if playerResult and computerResult and winner %}
+{% if not canExchange and playerResult and computerResult and winner %}
     <h2>Resultat</h2>
 
     <h3>Din hand: {{ playerResult }}</h3>

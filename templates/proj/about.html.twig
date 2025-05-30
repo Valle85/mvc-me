@@ -5,7 +5,11 @@
 {% block main %}
     <h1>Om Femkortspoker</h1>
 
-    <p>I detta projekt spelar du femkortspoker mot datorn.</p>
-    <p>Spelet går ut på att få den bästa pokerhanden efter upp till tre byten. Datorn spelar också och den med bäst hand vinner potten.</p>
-    <p>Du kan satsa poäng och spelet kommer ha enkel logik för datorn i början, med möjlighet att bygga på med smartare AI senare.</p>
+    <p>Detta spel är ett projekt utvecklat inom ramen för MVC-kursen vid BTH. Här spelar du traditionell femkortspoker mot datorn, där målet är att vinna så mycket pengar som möjligt genom att få en bättre hand än datorn.</p>
+
+    <p>Spelet börjar med ett startkapital på 1000 kr. Varje runda satsar du en summa och får fem kort. Du får därefter möjligheten att byta valfria kort en gång, innan datorn visar sin hand. Den med bäst pokerhand vinner potten.</p>
+
+    <p>Reglerna för pokerhänder följer den klassiska ordningen: Högsta kort, Par, Två par, Triss, Färg, Kåk och Fyrtal. Spelet avslutas automatiskt om du förlorar alla pengar, men du kan spela så många rundor du vill så länge du har pengar kvar.</p>
+
+    <p>Projektet innehåller också tester och kodkvalitetsanalys via verktyg som PHPUnit och Scrutinizer.</p>
 {% endblock %}
