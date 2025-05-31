@@ -105,7 +105,13 @@ class PokerGameController extends AbstractController
             $session->set("poker_winner", $winner);
 
             if ($money <= 0) {
-                return $this->render('proj/gameover.html.twig');
+                return $this->render('proj/gameover.html.twig', [
+                    "player" => $playerHand,
+                    "computer" => $computerHand,
+                    "playerResult" => $playerResult,
+                    "computerResult" => $computerResult,
+                    "winner" => $winner
+                ]);
             }
         }
 

@@ -6,6 +6,26 @@
     <h1>Game Over</h1>
     <p>Du har slut på pengar! Spelet är över.</p>
 
+    {% if player is defined and computer is defined %}
+        <h2>Dina kort</h2>
+        <div>
+            {% for card in player %}
+                <span class="card">{{ card }}</span>
+            {% endfor %}
+        </div>
+
+        <h2>Datorns kort</h2>
+        <div>
+            {% for card in computer %}
+                <span class="card">{{ card }}</span>
+            {% endfor %}
+        </div>
+
+        <p><strong>Ditt resultat:</strong> {{ playerResult }}</p>
+        <p><strong>Datorns resultat:</strong> {{ computerResult }}</p>
+        <p><strong>Vinnare:</strong> {{ winner }}</p>
+    {% endif %}
+
     <form method="post" action="{{ path('poker_reset') }}">
         <div class="game-buttons">
             <button type="submit">Starta om spelet</button>
