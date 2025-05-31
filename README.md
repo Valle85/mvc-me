@@ -14,12 +14,12 @@ Detta är ett skolprojekt där man spelar traditionell femkortspoker mot datorn.
 
 ## Kom igång
 
-git clone https://github.com/Valle85/mvc-me.git
-cd mvc/me/report
-composer install
-npm install
-npm run build
-symfony server:start
+- git clone https://github.com/Valle85/mvc-me.git
+- cd mvc/me/report
+- composer install
+- npm install
+- npm run build
+- symfony server:start
 
 
 ## Dokumentation & Analys
