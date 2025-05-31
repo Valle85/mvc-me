@@ -10,14 +10,14 @@
         <h2>Dina kort</h2>
         <div>
             {% for card in player %}
-                <span class="card">{{ card.getAsString() }}</span>
+                <span class="card">{{ card.getAsString()|raw }}</span>
             {% endfor %}
         </div>
 
         <h2>Datorns kort</h2>
         <div>
             {% for card in computer %}
-                <span class="card">{{ card.getAsString() }}</span>
+                <span class="card">{{ card.getAsString()|raw }}</span>
             {% endfor %}
         </div>
 
