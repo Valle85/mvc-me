@@ -73,8 +73,8 @@ Jag genomförde förbättringar i kodtäckning baserat på analyser från PhpMet
 - Lade till tester för PokerHandEvaluator 
 - Täckte klassen till 90% kodtäckning
 
-(public/img/before.png)
-(public/img/after.png)
+![Alt-text](public/img/before.png)
+![Alt-text](public/img/after.png)
 
 ## Verktyg 
 
